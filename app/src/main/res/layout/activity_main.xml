@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:weightSum="3"
+    tools:context="internetmoguls.com.imoguls.MainActivity">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/asiana"
+        card_view:cardUseCompatPadding="true"
+        android:layout_weight="1"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/asiana"
+                android:scaleType="centerCrop"
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/dark_shade"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="Kohinoor Asiana"
+                    android:textColor="#fff"
+                    android:textStyle="italic"
+                    android:textSize="24sp"
+                    android:typeface="serif"
+                    />
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:layout_marginEnd="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="4dp"
+                        android:layout_height="4dp"
+                        android:background="#fff"
+                        />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:layout_marginStart="10dp"
+                        />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:text="CHENNAI"
+                    android:textColor="#fff"
+                    android:padding="5dp"
+
+                    />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        card_view:cardUseCompatPadding="true"
+        android:id="@+id/continental"
+        android:layout_weight="1"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/continental"
+                android:scaleType="centerCrop"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/dark_shade"
+                />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="Kohinoor Continental"
+                    android:textColor="#fff"
+                    android:textStyle="italic"
+                    android:textSize="24sp"
+                    android:typeface="serif"
+                    />
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:layout_marginEnd="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="4dp"
+                        android:layout_height="4dp"
+                        android:background="#fff"
+                        />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:layout_marginStart="10dp"
+                        />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:text="MUMBAI"
+                    android:textColor="#fff"
+                    android:padding="5dp"
+
+                    />
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:id="@+id/elite"
+        android:layout_height="0dp"
+        card_view:cardUseCompatPadding="true"
+        android:layout_weight="1"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/elit"
+                android:scaleType="centerCrop"
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/dark_shade"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="Kohinoor Elite"
+                    android:textColor="#fff"
+                    android:textStyle="italic"
+                    android:textSize="24sp"
+                    android:typeface="serif"
+                    />
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:layout_marginEnd="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="4dp"
+                        android:layout_height="4dp"
+                        android:background="#fff"
+                        />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:layout_marginStart="10dp"
+                        />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:text="MUMBAI"
+                    android:textColor="#fff"
+                    android:padding="5dp"
+
+                    />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+</LinearLayout>
