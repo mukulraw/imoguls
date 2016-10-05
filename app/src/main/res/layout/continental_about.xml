@@ -37,7 +37,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="About Us"
                 android:typeface="serif"
-                android:fontFamily="@fonts/valadmir.TTF"
+
                 android:textStyle="italic"
                 android:textSize="24sp"
                 />
@@ -49,7 +49,7 @@
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
                 android:paddingBottom="18dp"
-                android:fontFamily="@fonts/roboto.ttf"
+
                 android:gravity="center_horizontal"
                 android:text="@string/continental_about"
                 />

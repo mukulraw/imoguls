@@ -39,7 +39,7 @@
                     android:text="SUPERIOR and DELUXE ROOM"
                     android:textSize="22sp"
                     android:padding="10dp"
-                    android:fontFamily="@fonts/valadmir.TTF"
+
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@fonts/roboto.ttf"
+
                     android:padding="18dp"
                     android:gravity="center_horizontal"
                     android:text="@string/asiana_room1"
@@ -98,7 +98,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="STUDIO ROOM"
                     android:textSize="24sp"
-                    android:fontFamily="@fonts/valadmir.TTF"
+
                     android:padding="10dp"
                     android:textStyle="italic"
                     android:typeface="serif"
@@ -108,7 +108,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@fonts/roboto.ttf"
+
                     android:gravity="center_horizontal"
                     android:padding="18dp"
                     android:text="@string/asiana_fnb_1"

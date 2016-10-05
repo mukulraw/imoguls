@@ -37,7 +37,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="About Us"
                 android:typeface="serif"
-                android:fontFamily="@fonts/valadmir"
+
                 android:textStyle="italic"
                 android:textSize="24sp"
                 />
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="18dp"
-                android:fontFamily="@fonts/roboto"
+
                 android:paddingEnd="18dp"
                 android:paddingBottom="18dp"
                 android:gravity="center_horizontal"

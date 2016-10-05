@@ -38,7 +38,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="DOUBLE ROOM"
                     android:textSize="22sp"
-                    android:fontFamily="@fonts/valadmir"
+
                     android:padding="10dp"
                     android:textStyle="italic"
                     android:typeface="serif"
@@ -49,7 +49,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="18dp"
-                    android:fontFamily="@fonts/roboto"
+
                     android:gravity="center_horizontal"
                     android:text="Hotel Kohinoor Elite offers a selection of 100 well appointed rooms divided into 80 Double rooms and 20 Twin rooms. Every room is spaciously built with an area of 270 sqft."
                     />
@@ -99,7 +99,7 @@
                     android:text="TWIN ROOM"
                     android:textSize="24sp"
                     android:padding="10dp"
-                    android:fontFamily="@fonts/valadmir"
+
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:padding="18dp"
                     android:gravity="center_horizontal"
-                    android:fontFamily="@fonts/roboto"
+
                     android:text="Hotel Kohinoor Elite is home to 20 well-furnished twin rooms with exquisite interiors. With all modern amenities our twin rooms have been designed to offer optimum comfort and luxury."
                     />
 
