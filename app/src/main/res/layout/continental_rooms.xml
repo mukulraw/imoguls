@@ -2,8 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app_card="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="match_parent"
     android:background="#f5f5f5"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -11,11 +11,71 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            app_card:cardUseCompatPadding="true"
+            android:layout_marginTop="5dp"
+            android:background="#f5f5f5"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/controom1"
+                    android:scaleType="centerCrop"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="SUPERIOR ROOM"
+                    android:fontFamily="@fonts/valadmir.TTF"
+                    android:textSize="22sp"
+                    android:padding="10dp"
+                    android:textStyle="italic"
+                    android:typeface="serif"
+                    />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@fonts/roboto.ttf"
+                    android:padding="18dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/cont_room1"
+                    />
+
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:id="@+id/asiana_room_1"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/round_white"
+                    android:text="BOOK"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             app_card:cardUseCompatPadding="true"
             android:layout_marginTop="5dp"
+            android:background="#f5f5f5"
             android:layout_marginBottom="5dp"
             android:layout_height="wrap_content">
 
@@ -28,7 +88,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:src="@drawable/asianafnb1"
+                    android:src="@drawable/controom2"
                     android:scaleType="centerCrop"
                     />
 
@@ -36,36 +96,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Multi Cuisine"
+                    android:text="PREMIUM ROOM"
                     android:textSize="24sp"
                     android:padding="10dp"
-                    android:fontFamily="@fonts/valadmir"
+                    android:fontFamily="@fonts/valadmir.TTF"
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CARAMEL"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="18dp"
-                    android:text="@string/asiana_fnb_1"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@fonts/roboto.ttf"
+                    android:text="@string/cont_room_2"
                     />
 
-                <TextView
+
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:id="@+id/asiana_room_2"
                     android:layout_gravity="center_horizontal"
-                    android:textStyle="bold"
-                    android:text="24 hr Multi-Cuisine Restaurant"
-                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/round_white"
+                    android:text="BOOK"
                     />
 
             </LinearLayout>
@@ -77,6 +135,8 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             app_card:cardUseCompatPadding="true"
+            android:layout_marginTop="5dp"
+            android:background="#f5f5f5"
             android:layout_marginBottom="5dp"
             android:layout_height="wrap_content">
 
@@ -89,7 +149,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:src="@drawable/asianafnb2"
+                    android:src="@drawable/controom3"
                     android:scaleType="centerCrop"
                     />
 
@@ -97,47 +157,46 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Magnificent"
+                    android:text="SAPPHIRE SUITE"
                     android:textSize="24sp"
-                    android:fontFamily="@fonts/valadmir"
                     android:padding="10dp"
+                    android:fontFamily="@fonts/valadmir.TTF"
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SILK"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="18dp"
-                    android:text="@string/asiana_fnb_2"
+                    android:fontFamily="@fonts/roboto.ttf"
+                    android:gravity="center_horizontal"
+                    android:text="@string/cont_room_3"
                     />
 
-                <TextView
+
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:id="@+id/asiana_room_3"
                     android:layout_gravity="center_horizontal"
-                    android:textStyle="bold"
-                    android:text="@string/tahi"
-                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/round_white"
+                    android:text="BOOK"
                     />
 
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
-
 
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             app_card:cardUseCompatPadding="true"
+            android:layout_marginTop="5dp"
+            android:background="#f5f5f5"
             android:layout_marginBottom="5dp"
             android:layout_height="wrap_content">
 
@@ -150,7 +209,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:src="@drawable/asianafnb3"
+                    android:src="@drawable/controom4"
                     android:scaleType="centerCrop"
                     />
 
@@ -158,36 +217,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Fine Dining"
+                    android:text="TOPAZ SUITE"
                     android:textSize="24sp"
                     android:padding="10dp"
-
+                    android:fontFamily="@fonts/valadmir.TTF"
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="WILD FIRE"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@fonts/roboto.ttf"
                     android:padding="18dp"
-                    android:text="@string/asiana_fnb_3"
+                    android:gravity="center_horizontal"
+                    android:text="@string/cont_room_4"
                     />
 
-                <TextView
+
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:id="@+id/asiana_room_4"
                     android:layout_gravity="center_horizontal"
-                    android:textStyle="bold"
-                    android:text="Closed for Renovation"
-                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/round_white"
+                    android:text="BOOK"
                     />
 
             </LinearLayout>
@@ -196,65 +253,8 @@
 
 
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            app_card:cardUseCompatPadding="true"
-            android:layout_marginBottom="5dp"
-            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:src="@drawable/asianafnb4"
-                    android:scaleType="centerCrop"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Lounge Bar"
-                    android:textSize="24sp"
-                    android:padding="10dp"
-                    android:textStyle="italic"
-                    android:typeface="serif"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CARAMEL"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="18dp"
-                    android:text="@string/asiana_fnb_1"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:textStyle="bold"
-                    android:text="24 hr Multi-Cuisine Restaurant"
-                    android:padding="10dp"
-                    />
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
 
     </LinearLayout>
-
 
 </ScrollView>

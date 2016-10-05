@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="internetmoguls.com.imoguls">
 
-
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".bean"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,7 +22,9 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".Asiana" />
         <activity android:name=".Elite" />
-        <activity android:name=".Continental"></activity>
+        <activity android:name=".Continental" />
+        <activity android:name=".OTP_Activity" />
+        <activity android:name=".WebView"></activity>
     </application>
 
 </manifest>

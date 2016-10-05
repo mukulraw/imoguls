@@ -28,7 +28,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:src="@drawable/asianroom1"
+                    android:src="@drawable/eliteroom1"
                     android:scaleType="centerCrop"
                     />
 
@@ -36,10 +36,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="SUPERIOR and DELUXE ROOM"
+                    android:text="DOUBLE ROOM"
                     android:textSize="22sp"
+                    android:fontFamily="@fonts/valadmir"
                     android:padding="10dp"
-                    android:fontFamily="@fonts/valadmir.TTF"
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
@@ -48,10 +48,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@fonts/roboto.ttf"
                     android:padding="18dp"
+                    android:fontFamily="@fonts/roboto"
                     android:gravity="center_horizontal"
-                    android:text="@string/asiana_room1"
+                    android:text="Hotel Kohinoor Elite offers a selection of 100 well appointed rooms divided into 80 Double rooms and 20 Twin rooms. Every room is spaciously built with an area of 270 sqft."
                     />
 
 
@@ -88,7 +88,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:src="@drawable/asianaroom2"
+                    android:src="@drawable/eliteroom2"
                     android:scaleType="centerCrop"
                     />
 
@@ -96,10 +96,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="STUDIO ROOM"
+                    android:text="TWIN ROOM"
                     android:textSize="24sp"
-                    android:fontFamily="@fonts/valadmir.TTF"
                     android:padding="10dp"
+                    android:fontFamily="@fonts/valadmir"
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
@@ -108,10 +108,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@fonts/roboto.ttf"
-                    android:gravity="center_horizontal"
                     android:padding="18dp"
-                    android:text="@string/asiana_fnb_1"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@fonts/roboto"
+                    android:text="Hotel Kohinoor Elite is home to 20 well-furnished twin rooms with exquisite interiors. With all modern amenities our twin rooms have been designed to offer optimum comfort and luxury."
                     />
 
 

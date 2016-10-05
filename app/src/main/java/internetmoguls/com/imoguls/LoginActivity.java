@@ -1,5 +1,6 @@
 package internetmoguls.com.imoguls;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -158,7 +159,8 @@ public class LoginActivity extends AppCompatActivity {
 
         EditText email , password;
         Button log;
-        TextView loggedIn;
+        TextView forgot;
+
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -167,26 +169,70 @@ public class LoginActivity extends AppCompatActivity {
 
             email = (EditText)v.findViewById(R.id.email_login);
             password = (EditText)v.findViewById(R.id.password_login);
-            loggedIn = (TextView)v.findViewById(R.id.keep_logged_in);
 
-            loggedIn.setOnClickListener(new View.OnClickListener() {
+            forgot = (TextView)v.findViewById(R.id.forgot);
+
+            forgot.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    if (!keepLogged)
-                    {
-                        loggedIn.setBackgroundResource(R.drawable.logged_in_false);
-                        keepLogged = true;
-                    }
-                    else
-                    {
-                        loggedIn.setBackgroundColor(Color.TRANSPARENT);
-                        keepLogged = false;
-                    }
+                    final Dialog dialog = new Dialog(getActivity());
+                    dialog.setCancelable(true);
+                    dialog.setContentView(R.layout.forgot_dialog);
+
+                    dialog.show();
+
+                    final EditText forText = (EditText)dialog.findViewById(R.id.forgot_text);
+                    Button forg = (Button)dialog.findViewById(R.id.forgot_button);
+
+                    forg.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            Retrofit retrofit = new Retrofit.Builder()
+                                    .baseUrl("http://nationproducts.in/")
+                                    .addConverterFactory(ScalarsConverterFactory.create())
+                                    .addConverterFactory(GsonConverterFactory.create())
+                                    .build();
+
+                            Register cr = retrofit.create(Register.class);
+
+                            Call<RegisterBean> call = cr.forgotPass(forText.getText().toString());
+
+                            call.enqueue(new Callback<RegisterBean>() {
+                                @Override
+                                public void onResponse(Call<RegisterBean> call, Response<RegisterBean> response) {
+
+
+                                    if (response.body().getStatus().equals("1"))
+                                    {
+                                        Toast.makeText(getActivity() , "Your password has sent to your email id" , Toast.LENGTH_SHORT).show();
+                                        dialog.dismiss();
+                                    }
+                                    else {
+                                        Toast.makeText(getActivity() , "Invalid email id" , Toast.LENGTH_SHORT).show();
+                                        dialog.dismiss();
+                                    }
+
+
+
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<RegisterBean> call, Throwable t) {
+
+                                }
+                            });
+
+
+                        }
+                    });
 
 
                 }
             });
+
 
 
             log = (Button)v.findViewById(R.id.signin);
@@ -203,12 +249,15 @@ public class LoginActivity extends AppCompatActivity {
 
                     //add login logic
 
-                    Intent i = new Intent(getContext() , MainActivity.class);
+                  /*  Intent i = new Intent(getContext() , MainActivity.class);
                     startActivity(i);
                     getActivity().finish();
-
+*/
                     //logoEmail("email" , e , p);
 
+
+
+                    login(e , p);
 
 
 
@@ -234,6 +283,65 @@ public class LoginActivity extends AppCompatActivity {
             return v;
 
         }
+
+
+        public void login(String em , String pas)
+        {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://nationproducts.in/")
+                    .addConverterFactory(ScalarsConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            Register cr = retrofit.create(Register.class);
+
+            Call<RegisterBean> call = cr.login(em , pas);
+
+            call.enqueue(new Callback<RegisterBean>() {
+                @Override
+                public void onResponse(Call<RegisterBean> call, Response<RegisterBean> response) {
+
+
+                    if (response.body().getStatus().equals("4"))
+                    {
+                        bean b = (bean)getActivity().getApplicationContext();
+
+                        b.userId = response.body().getUserId();
+
+                        Intent i = new Intent(getContext() ,MainActivity.class);
+                        startActivity(i);
+                        getActivity().finish();
+                    }
+                    if (response.body().getStatus().equals("2"))
+                    {
+                        bean b = (bean)getActivity().getApplicationContext();
+
+                        b.userId = response.body().getUserId();
+                        Intent i = new Intent(getContext() ,OTP_Activity.class);
+                        startActivity(i);
+                        getActivity().finish();
+
+                    }
+
+                    if (response.body().getStatus().equals("1") || response.body().getStatus().equals("3"))
+                    {
+                        Toast.makeText(getContext() , "Invalid Email or password" , Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
+
+                }
+
+                @Override
+                public void onFailure(Call<RegisterBean> call, Throwable t) {
+
+                }
+            });
+
+        }
+
     }
 
     public static class SecondPage extends Fragment {
@@ -325,7 +433,7 @@ public class LoginActivity extends AppCompatActivity {
         {
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://samplelogin.affixwebsolution.com/")
+                    .baseUrl("http://nationproducts.in/")
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
@@ -339,16 +447,29 @@ public class LoginActivity extends AppCompatActivity {
                 public void onResponse(Call<RegisterBean> call, Response<RegisterBean> response) {
 
 
+                    if (response.body().getStatus().equals("1"))
+                    {
+                        Toast.makeText(getActivity() , "Please check registered Email Id for verification code" , Toast.LENGTH_LONG).show();
+
+                        username.setText("");
+                        emailId.setText("");
+                        mobileNo.setText("");
+                        passw.setText("");
+                        retpassword.setText("");
+                        addre.setText("");
+
+                        Intent i = new Intent(getActivity() , OTP_Activity.class);
+                        bean b = (bean)getActivity().getApplicationContext();
+                        b.userId = response.body().getUserId();
+                        startActivity(i);
+                        getActivity().finish();
+                    }
+                    if (response.body().getStatus().equals("2"))
+                    {
+                        Toast.makeText(getActivity() , "Email Already registered, please login to continue" , Toast.LENGTH_SHORT).show();
+                    }
 
 
-                    Log.d("asdasdasd" , response.body().getMessage());
-
-                    username.setText("");
-                    emailId.setText("");
-                    mobileNo.setText("");
-                    passw.setText("");
-                    retpassword.setText("");
-                    addre.setText("");
 
 
 

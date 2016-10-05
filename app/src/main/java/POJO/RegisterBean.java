@@ -6,12 +6,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class RegisterBean {
 
+    @SerializedName("user_id")
+    @Expose
+    private String userId;
     @SerializedName("status")
     @Expose
     private String status;
     @SerializedName("message")
     @Expose
     private String message;
+
+    /**
+     *
+     * @return
+     * The userId
+     */
+    public String getUserId() {
+        return userId;
+    }
+
+    /**
+     *
+     * @param userId
+     * The user_id
+     */
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     /**
      *
@@ -48,6 +69,5 @@ public class RegisterBean {
     public void setMessage(String message) {
         this.message = message;
     }
-
 
 }

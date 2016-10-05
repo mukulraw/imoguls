@@ -20,7 +20,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:background="@drawable/text_background"
             android:hint="Email Id"
             android:layout_marginStart="2dp"
@@ -36,30 +36,20 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:background="@drawable/text_background"
             android:hint="Password"
             android:layout_marginStart="2dp"
             android:id="@+id/password_login"
             android:inputType="textPassword"
             android:layout_marginEnd="2dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:textColor="#fff"
             android:textColorHint="#fff"
             />
 
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:padding="5dp"
-            android:textColor="#fff"
-            android:text="Keep me logged in"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/keep_logged_in"
-            />
 
 
 
@@ -82,6 +72,7 @@
             android:text="I forgot my password"
             android:textAllCaps="true"
             android:padding="10dp"
+            android:id="@+id/forgot"
             android:textColor="#fff"
             />
 

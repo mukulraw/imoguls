@@ -12,7 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="18dp"
         android:layout_centerInParent="true"
         >
 
@@ -21,7 +24,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/text_background"
             android:hint="Username"
@@ -37,7 +40,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:background="@drawable/text_background"
             android:hint="Email Id"
             android:layout_marginStart="2dp"
@@ -52,7 +55,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:background="@drawable/text_background"
             android:hint="Mobile No."
             android:inputType="phone"
@@ -67,7 +70,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:id="@+id/address"
             android:inputType="textPostalAddress"
             android:background="@drawable/text_background"
@@ -83,7 +86,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:id="@+id/password"
             android:inputType="textPassword"
             android:background="@drawable/text_background"
@@ -97,7 +100,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:background="@drawable/text_background"
             android:hint="Retype password"
             android:layout_marginStart="2dp"
@@ -114,7 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="By creating an account you are agree to our\n Terms of Use and Privacy Policy"
-            android:padding="10dp"
+            android:padding="5dp"
             android:gravity="center"
             android:layout_marginBottom="10dp"
             android:textColor="#fff"
