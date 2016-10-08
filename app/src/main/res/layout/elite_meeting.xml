@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#f5f5f5"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginTop="5dp"
     android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:text="Request for proposal"
+        android:textColor="@color/colorAccent"
+        android:typeface="serif"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="name*"
+        android:padding="10dp"
+        android:background="@drawable/meeting_background"
+        android:inputType="textPersonName"
+        android:layout_margin="5dp"
+        android:id="@+id/elite_m_name"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email*"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/meeting_background"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+
+        android:id="@+id/elite_m_email"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="phone*"
+        android:background="@drawable/meeting_background"
+        android:inputType="phone"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:id="@+id/elite_m_phone"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="subject*"
+        android:inputType="text"
+        android:layout_margin="5dp"
+        android:background="@drawable/meeting_background"
+        android:padding="10dp"
+        android:id="@+id/elite_m_subject"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="message*"
+        android:layout_margin="5dp"
+        android:background="@drawable/meeting_background"
+        android:inputType="textLongMessage"
+        android:padding="10dp"
+        android:id="@+id/elite_m_message"
+        />
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="submit"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/round_white"
+        android:id="@+id/elite_m_submit"
+        />
+
+
 
 </LinearLayout>

@@ -13,13 +13,27 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import INTERFACES.Register;
+import POJO.RegisterBean;
+import POJO.fnbBean;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class Elite extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -41,7 +55,7 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
 
 
         View view = nav.getHeaderView(0);
-
+        nav.setNavigationItemSelectedListener(this);
         TextView tv = (TextView)view.findViewById(R.id.nav_name);
 
 
@@ -72,7 +86,8 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         tabs.addTab(tabs.newTab().setText("MEETING/EVENTS"));
 
 
-
+        tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
 
         FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager() , tabs.getTabCount());
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
@@ -106,11 +121,19 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId();
-
-        if (id == R.id.nav_gallery) {
-
+        if (id == R.id.nav_log_out) {
 
 
+
+            bean b = (bean)getApplicationContext();
+
+            b.userId = "";
+            b.username = "";
+
+            Intent i = new Intent(Elite.this , LoginActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+            finish();
 
         }
 
@@ -231,21 +254,195 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
 
     public static class fnb extends Fragment{
 
+        FnBListAdapter adapter;
+
+        RecyclerView grid;
+        GridLayoutManager manager;
+        TextView hide;
+
+        @Override
+        public void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            manager = new GridLayoutManager(getContext() , 1);
+
+        }
+
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            View v = inflater.inflate(R.layout.elite_fnb , container , false);
+            View v = inflater.inflate(R.layout.asiana_fnb , container , false);
+
+            hide = (TextView)v.findViewById(R.id.hide);
+
+            grid = (RecyclerView)v.findViewById(R.id.fnb_list);
+
+            grid.setLayoutManager(manager);
+
+
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://nationproducts.in/")
+                    .addConverterFactory(ScalarsConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            Register cr = retrofit.create(Register.class);
+
+            Call<fnbBean> call = cr.getfnb("3");
+
+
+
+            call.enqueue(new Callback<fnbBean>() {
+                @Override
+                public void onResponse(Call<fnbBean> call, Response<fnbBean> response) {
+
+                    if (response.body().getPosts().size()>0)
+                    {
+                        adapter = new FnBListAdapter(getContext() , response.body().getPosts());
+
+                        grid.setAdapter(adapter);
+
+                        hide.setVisibility(View.GONE);
+                        grid.setVisibility(View.VISIBLE);
+
+                    }
+                    else
+                    {
+                        hide.setVisibility(View.VISIBLE);
+                        grid.setVisibility(View.GONE);
+                    }
+
+
+
+
+                }
+
+                @Override
+                public void onFailure(Call<fnbBean> call, Throwable t) {
+
+                }
+            });
+
+
+
             return v;
         }
     }
 
+
     public static class meetings extends Fragment{
 
-
+        EditText name , email , phone , sub , mess;
+        Button submit;
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.elite_meeting , container , false);
+            name = (EditText)v.findViewById(R.id.elite_m_name);
+            email = (EditText)v.findViewById(R.id.elite_m_email);
+            phone = (EditText)v.findViewById(R.id.elite_m_phone);
+            sub = (EditText)v.findViewById(R.id.elite_m_subject);
+            mess = (EditText)v.findViewById(R.id.elite_m_message);
+            submit = (Button) v.findViewById(R.id.elite_m_submit);
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+
+                    if (name.getText().toString().length()>0)
+                    {
+
+                        if (email.getText().toString().length()>0)
+                        {
+
+                            if (phone.getText().toString().length()>0)
+                            {
+
+                                if (sub.getText().toString().length()>0)
+                                {
+
+                                    if (mess.getText().toString().length()>0)
+                                    {
+
+
+                                        Retrofit retrofit = new Retrofit.Builder()
+                                                .baseUrl("http://nationproducts.in/")
+                                                .addConverterFactory(ScalarsConverterFactory.create())
+                                                .addConverterFactory(GsonConverterFactory.create())
+                                                .build();
+
+                                        Register cr = retrofit.create(Register.class);
+
+
+                                        Call<RegisterBean> call = cr.submitQuery("3" , name.getText().toString() , email.getText().toString() , phone.getText().toString() , sub.getText().toString() , mess.getText().toString());
+
+                                        call.enqueue(new Callback<RegisterBean>() {
+                                            @Override
+                                            public void onResponse(Call<RegisterBean> call, Response<RegisterBean> response) {
+
+
+                                                if (response.body().getStatus().equals("1"))
+                                                {
+                                                    Toast.makeText(getActivity() , "Your query submitted successfully" , Toast.LENGTH_SHORT).show();
+                                                    name.setText("");
+                                                    email.setText("");
+                                                    phone.setText("");
+                                                    sub.setText("");
+                                                    mess.setText("");
+
+                                                }
+
+
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<RegisterBean> call, Throwable t) {
+
+                                            }
+                                        });
+
+
+
+
+
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(getContext() , "Please enter a message" , Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                                else
+                                {
+                                    Toast.makeText(getContext() , "Please enter a subject" , Toast.LENGTH_SHORT).show();
+
+                                }
+
+                            }
+                            else
+                            {
+                                Toast.makeText(getContext() , "Phone number is required" , Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                        else
+                        {
+                            Toast.makeText(getActivity() , "Email is required" , Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+                    else {
+                        Toast.makeText(getActivity() , "Name is required" , Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
+
+
+                }
+            });
+
             return v;
         }
     }

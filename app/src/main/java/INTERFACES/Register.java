@@ -3,6 +3,7 @@ package INTERFACES;
 
 import POJO.RegisterBean;
 import POJO.detailsBean;
+import POJO.fnbBean;
 import retrofit2.Call;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -30,9 +31,16 @@ public interface Register {
     Call<detailsBean> details(@Part("id") String email);
 
     @Multipart
-    @POST("immogules/user_detail.php")
+    @POST("immogules/forgot_password.php")
     Call<RegisterBean> forgotPass(@Part("email") String email);
 
+    @Multipart
+    @POST("immogules/form_data.php")
+    Call<RegisterBean> submitQuery(@Part("form1") String form1 , @Part("name") String name , @Part("email") String email , @Part("phone_number") String phone , @Part("subject") String subject , @Part("message") String message);
 
+
+    @Multipart
+    @POST("immogules/offer_data.php")
+    Call<fnbBean> getfnb(@Part("category") String category);
 
 }

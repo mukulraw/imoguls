@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_login3"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="internetmoguls.com.imoguls.LoginActivity">
@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/hotel"
+        android:src="@drawable/ho"
         android:scaleType="centerCrop"
         />
 
@@ -34,7 +34,7 @@
         android:id="@+id/title"
         android:textSize="24sp"
         android:textColor="#fff"
-        android:fontFamily="fonts/roboto"
+
         android:paddingStart="20dp"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"

@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.SmoothViewPager;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.accessibility.AccessibilityManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -209,7 +210,8 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(getActivity() , "Your password has sent to your email id" , Toast.LENGTH_SHORT).show();
                                         dialog.dismiss();
                                     }
-                                    else {
+                                    if (response.body().getStatus().equals("2"))
+                                    {
                                         Toast.makeText(getActivity() , "Invalid email id" , Toast.LENGTH_SHORT).show();
                                         dialog.dismiss();
                                     }
@@ -384,18 +386,68 @@ public class LoginActivity extends AppCompatActivity {
                     String mob = mobileNo.getText().toString();
 
 
-                    if (retpa.equals(pass))
+                    if (user.length()>0)
                     {
 
-                        //add register logic
+                        if (emai.length()>0)
+                        {
 
-                        regisEmail(user , emai , mob , pass , addr);
+                            if (addr.length()>0)
+                            {
+
+                                if (mob.length()>0)
+                                {
+
+                                    if (pass.length()>0)
+                                    {
+
+
+
+                                        if (retpa.equals(pass))
+                                        {
+
+                                            //add register logic
+
+                                            regisEmail(user , emai , mob , pass , addr);
+
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(getActivity() , "Your password didn't match" , Toast.LENGTH_SHORT).show();
+                                        }
+
+
+
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(getContext() , "Please enter password" , Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                                else
+                                {
+                                    Toast.makeText(getContext() , "Please enter mobile number" , Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            else
+                            {
+                                Toast.makeText(getContext() , "Address is required" , Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                        else
+                        {
+                            Toast.makeText(getContext() , "Please enter email address" , Toast.LENGTH_SHORT).show();
+                        }
 
                     }
-                    else
-                    {
-                        Toast.makeText(getActivity() , "Your password didn't match" , Toast.LENGTH_SHORT).show();
+                    else {
+                        Toast.makeText(getContext() , "Please enter username" , Toast.LENGTH_SHORT).show();
                     }
+
+
+
 
                     //new register(emai , user , pass).execute();
                     //regisEmail("email" , user , emai , pass);
