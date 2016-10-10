@@ -1,6 +1,8 @@
 package internetmoguls.com.imoguls;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -40,13 +42,16 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
     TabLayout tabs;
     ViewPager pager;
     DrawerLayout drawer;
+    SharedPreferences pref;
+    static SharedPreferences.Editor edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_continental);
 
-
+        pref = getSharedPreferences("myPref" , Context.MODE_PRIVATE);
+        edit = pref.edit();
         bean b = (bean)getApplicationContext();
 
         NavigationView nav = (NavigationView)findViewById(R.id.navId);
@@ -126,6 +131,10 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
 
             b.userId = "";
             b.username = "";
+            edit.putBoolean("email" , false);
+            edit.remove("emailId");
+            edit.remove("password");
+            edit.apply();
 
             Intent i = new Intent(Continental.this , LoginActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);

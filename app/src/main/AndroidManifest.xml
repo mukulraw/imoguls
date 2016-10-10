@@ -24,7 +24,17 @@
         <activity android:name=".Elite" />
         <activity android:name=".Continental" />
         <activity android:name=".OTP_Activity" />
-        <activity android:name=".WebView"></activity>
+        <activity android:name=".WebView"/>
+        <service android:name=".NotificationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name=".FireBaseIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

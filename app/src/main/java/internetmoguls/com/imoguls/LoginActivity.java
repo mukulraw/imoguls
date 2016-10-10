@@ -161,6 +161,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText email , password;
         Button log;
         TextView forgot;
+        TextView loggedIn;
 
 
         @Override
@@ -230,6 +231,28 @@ public class LoginActivity extends AppCompatActivity {
 
                         }
                     });
+
+
+                }
+            });
+
+
+            loggedIn = (TextView)v.findViewById(R.id.keep_logged_in);
+
+            loggedIn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if (!keepLogged)
+                    {
+                        loggedIn.setBackgroundResource(R.drawable.logged_in_false);
+                        keepLogged = true;
+                    }
+                    else
+                    {
+                        loggedIn.setBackgroundColor(Color.TRANSPARENT);
+                        keepLogged = false;
+                    }
 
 
                 }
@@ -306,6 +329,19 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (response.body().getStatus().equals("4"))
                     {
+
+                        if (keepLogged)
+                        {
+                            edit.putBoolean("email" , true);
+                            edit.putString("emailId" , e);
+                            edit.putString("password" , p);
+                            edit.apply();
+
+                        }
+
+
+
+
                         bean b = (bean)getActivity().getApplicationContext();
 
                         b.userId = response.body().getUserId();
