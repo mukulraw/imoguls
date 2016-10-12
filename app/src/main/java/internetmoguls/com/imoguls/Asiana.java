@@ -161,7 +161,8 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs))
         if (id == R.id.nav_camera)
         {
 
-
+            Intent i = new Intent(Asiana.this , PromoCodeActivity.class);
+            startActivity(i);
 
 
         }
@@ -315,7 +316,7 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs))
                 @Override
                 public void onResponse(Call<fnbBean> call, Response<fnbBean> response) {
 
-                    if (response.body().getPosts().size()>0)
+                    if (response.body().getPosts()!=null)
                     {
                         adapter = new FnBListAdapter(getContext() , response.body().getPosts());
 

@@ -150,7 +150,8 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
 
         if (id == R.id.nav_camera)
         {
-
+            Intent i = new Intent(Continental.this , PromoCodeActivity.class);
+            startActivity(i);
 
 
 
@@ -327,7 +328,7 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
                 @Override
                 public void onResponse(Call<fnbBean> call, Response<fnbBean> response) {
 
-                    if (response.body().getPosts().size()>0)
+                    if (response.body().getPosts()!=null)
                     {
                         adapter = new FnBListAdapter(getContext() , response.body().getPosts());
 

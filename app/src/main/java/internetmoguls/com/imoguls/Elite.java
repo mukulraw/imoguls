@@ -154,6 +154,8 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         if (id == R.id.nav_camera)
         {
 
+            Intent i = new Intent(Elite.this , PromoCodeActivity.class);
+            startActivity(i);
 
 
 
@@ -309,7 +311,7 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
                 @Override
                 public void onResponse(Call<fnbBean> call, Response<fnbBean> response) {
 
-                    if (response.body().getPosts().size()>0)
+                    if (response.body().getPosts()!=null)
                     {
                         adapter = new FnBListAdapter(getContext() , response.body().getPosts());
 

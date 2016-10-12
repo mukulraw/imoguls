@@ -31,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        asiana = (CardView)findViewById(R.id.asiana);
+        elite = (CardView)findViewById(R.id.elite);
+        continental = (CardView)findViewById(R.id.continental);
+
+
+        asiana.setVisibility(View.GONE);
+        elite.setVisibility(View.GONE);
+        continental.setVisibility(View.GONE);
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -51,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
 
                 b.username = response.body().getName();
 
+                asiana.setVisibility(View.VISIBLE);
+                continental.setVisibility(View.VISIBLE);
+                elite.setVisibility(View.VISIBLE);
+
+
             }
 
             @Override
@@ -62,9 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        asiana = (CardView)findViewById(R.id.asiana);
-        elite = (CardView)findViewById(R.id.elite);
-        continental = (CardView)findViewById(R.id.continental);
+
 
 
 

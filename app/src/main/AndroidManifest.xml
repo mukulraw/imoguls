@@ -11,31 +11,50 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Asiana" />
-        <activity android:name=".Elite" />
-        <activity android:name=".Continental" />
-        <activity android:name=".OTP_Activity" />
-        <activity android:name=".WebView"/>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Asiana"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Elite"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Continental"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OTP_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WebView"
+            android:screenOrientation="portrait" />
+
         <service android:name=".NotificationService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service android:name=".FireBaseIdService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".DeleteTokenService"/>
+        <service android:name=".DeleteTokenService" />
+
+        <activity android:name=".PromoCodeActivity"></activity>
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ package INTERFACES;
 import POJO.RegisterBean;
 import POJO.detailsBean;
 import POJO.fnbBean;
+import PROMO_POJO.promoBean;
 import retrofit2.Call;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -42,5 +43,11 @@ public interface Register {
     @Multipart
     @POST("immogules/offer_data.php")
     Call<fnbBean> getfnb(@Part("category") String category);
+
+
+    @Multipart
+    @POST("immogules/user_voucher.php")
+    Call<promoBean> getPromo(@Part("id") String id);
+
 
 }
