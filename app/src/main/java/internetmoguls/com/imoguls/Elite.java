@@ -132,12 +132,17 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
 
             bean b = (bean)getApplicationContext();
 
+            Intent delService = new Intent(this , DeleteTokenService.class);
+            startService(delService);
+
             b.userId = "";
             b.username = "";
             edit.putBoolean("email" , false);
             edit.remove("emailId");
+            edit.remove("RegId");
             edit.remove("password");
             edit.apply();
+
 
             Intent i = new Intent(Elite.this , LoginActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);

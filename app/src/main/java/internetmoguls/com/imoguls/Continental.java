@@ -129,12 +129,17 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
 
             bean b = (bean)getApplicationContext();
 
+            Intent delService = new Intent(this , DeleteTokenService.class);
+            startService(delService);
+
             b.userId = "";
             b.username = "";
             edit.putBoolean("email" , false);
             edit.remove("emailId");
+            edit.remove("RegId");
             edit.remove("password");
             edit.apply();
+
 
             Intent i = new Intent(Continental.this , LoginActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);

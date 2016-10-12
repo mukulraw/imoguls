@@ -28,6 +28,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
+import java.io.IOException;
+
 import INTERFACES.Register;
 import POJO.RegisterBean;
 import POJO.fnbBean;
@@ -136,10 +140,14 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs))
 
             bean b = (bean)getApplicationContext();
 
+            Intent delService = new Intent(this , DeleteTokenService.class);
+            startService(delService);
+
             b.userId = "";
             b.username = "";
             edit.putBoolean("email" , false);
             edit.remove("emailId");
+            edit.remove("RegId");
             edit.remove("password");
             edit.apply();
 

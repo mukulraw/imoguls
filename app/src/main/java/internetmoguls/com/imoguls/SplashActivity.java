@@ -35,11 +35,22 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
 
+
+
+
+
+
+
        // Log.d("asdasdasd" , FirebaseInstanceId.getInstance().getToken());
 
 
         pref = getSharedPreferences("myPref" , Context.MODE_PRIVATE);
         edit = pref.edit();
+
+
+
+
+
 
         Boolean is = pref.getBoolean("email" , false);
 
