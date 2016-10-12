@@ -49,16 +49,6 @@
             />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:padding="5dp"
-            android:textColor="#fff"
-            android:text="Keep me logged in"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/keep_logged_in"
-            />
 
 
 

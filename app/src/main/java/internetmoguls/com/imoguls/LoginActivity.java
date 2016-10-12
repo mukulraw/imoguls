@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
     static TextSwitcher title;
-    SharedPreferences pref;
+    static SharedPreferences pref;
     static SharedPreferences.Editor edit;
     static String e = "";
     static String p = "";
@@ -161,7 +161,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText email , password;
         Button log;
         TextView forgot;
-        TextView loggedIn;
+
 
 
         @Override
@@ -237,27 +237,6 @@ public class LoginActivity extends AppCompatActivity {
             });
 
 
-            loggedIn = (TextView)v.findViewById(R.id.keep_logged_in);
-
-            loggedIn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    if (!keepLogged)
-                    {
-                        loggedIn.setBackgroundResource(R.drawable.logged_in_false);
-                        keepLogged = true;
-                    }
-                    else
-                    {
-                        loggedIn.setBackgroundColor(Color.TRANSPARENT);
-                        keepLogged = false;
-                    }
-
-
-                }
-            });
-
 
 
             log = (Button)v.findViewById(R.id.signin);
@@ -320,7 +299,9 @@ public class LoginActivity extends AppCompatActivity {
 
             Register cr = retrofit.create(Register.class);
 
-            Call<RegisterBean> call = cr.login(em , pas);
+            String token = pref.getString("RegId" , null);
+
+            Call<RegisterBean> call = cr.login(em , pas , token);
 
             call.enqueue(new Callback<RegisterBean>() {
                 @Override
@@ -330,14 +311,13 @@ public class LoginActivity extends AppCompatActivity {
                     if (response.body().getStatus().equals("4"))
                     {
 
-                        if (keepLogged)
-                        {
+
                             edit.putBoolean("email" , true);
                             edit.putString("emailId" , e);
                             edit.putString("password" , p);
                             edit.apply();
 
-                        }
+
 
 
 

@@ -87,12 +87,12 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
 
         tabs.addTab(tabs.newTab().setText("ABOUT"));
         tabs.addTab(tabs.newTab().setText("ROOMS"));
-        tabs.addTab(tabs.newTab().setText("F & B"));
+        tabs.addTab(tabs.newTab().setText("F and B"));
         tabs.addTab(tabs.newTab().setText("MEETING/EVENTS"));
 
 
         tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
-        tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
+        //tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
 
         FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager() , tabs.getTabCount());
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));

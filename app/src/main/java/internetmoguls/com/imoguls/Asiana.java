@@ -94,10 +94,10 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
 
         tabs.addTab(tabs.newTab().setText("ABOUT"));
         tabs.addTab(tabs.newTab().setText("ROOMS"));
-        tabs.addTab(tabs.newTab().setText("F & B"));
+        tabs.addTab(tabs.newTab().setText("F and B"));
         tabs.addTab(tabs.newTab().setText("MEETING/EVENTS"));
         tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
-        tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
+        //tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
 
 
 

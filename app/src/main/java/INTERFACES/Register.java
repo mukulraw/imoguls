@@ -19,7 +19,7 @@ public interface Register {
 
     @Multipart
     @POST("immogules/user_login.php")
-    Call<RegisterBean> login(@Part("email") String email, @Part("password") String password);
+    Call<RegisterBean> login(@Part("email") String email, @Part("password") String password , @Part("reg_id") String token);
 
 
     @Multipart

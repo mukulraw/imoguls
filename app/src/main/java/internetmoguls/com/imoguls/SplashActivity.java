@@ -64,7 +64,9 @@ public class SplashActivity extends AppCompatActivity {
 
             Register cr = retrofit.create(Register.class);
 
-            Call<RegisterBean> call = cr.login(pref.getString("emailId" , null) , pref.getString("password" , null));
+            String token = pref.getString("RegId" , null);
+
+            Call<RegisterBean> call = cr.login(pref.getString("emailId" , null) , pref.getString("password" , null) , token);
 
             call.enqueue(new Callback<RegisterBean>() {
                 @Override
