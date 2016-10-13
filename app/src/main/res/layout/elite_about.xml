@@ -36,8 +36,9 @@
                 android:padding="10dp"
                 android:layout_gravity="center_horizontal"
                 android:text="About Us"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/elite_ab_title"
                 android:typeface="serif"
-
                 android:textStyle="italic"
                 android:textSize="24sp"
                 />
@@ -47,9 +48,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="18dp"
-
                 android:paddingEnd="18dp"
                 android:paddingBottom="18dp"
+                android:id="@+id/elite_ab_con"
                 android:gravity="center_horizontal"
                 android:text="@string/elite_about"
                 />

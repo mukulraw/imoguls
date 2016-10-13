@@ -50,6 +50,7 @@
                     android:gravity="center"
                     android:text="Kohinoor Asiana"
                     android:textColor="#fff"
+                    android:id="@+id/asiana_title"
                     android:textStyle="italic"
                     android:textSize="24sp"
                     android:typeface="serif"
@@ -95,6 +96,7 @@
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"
                     android:text="CHENNAI"
+                    android:id="@+id/asiana_content"
                     android:textColor="#fff"
                     android:padding="5dp"
 
@@ -146,6 +148,7 @@
                     android:gravity="center"
                     android:text="Kohinoor Continental"
                     android:textColor="#fff"
+                    android:id="@+id/cont_title"
                     android:textStyle="italic"
                     android:textSize="24sp"
                     android:typeface="serif"
@@ -192,6 +195,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="MUMBAI"
                     android:textColor="#fff"
+                    android:id="@+id/cont_con"
                     android:padding="5dp"
 
                     />
@@ -243,6 +247,7 @@
                     android:gravity="center"
                     android:text="Kohinoor Elite"
                     android:textColor="#fff"
+                    android:id="@+id/elite_title"
                     android:textStyle="italic"
                     android:textSize="24sp"
                     android:typeface="serif"
@@ -288,6 +293,7 @@
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"
                     android:text="MUMBAI"
+                    android:id="@+id/elite_con"
                     android:textColor="#fff"
                     android:padding="5dp"
 

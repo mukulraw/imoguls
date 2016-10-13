@@ -4,7 +4,7 @@
     >
 
     <stroke
-        android:color="@color/colorAccent"
+        android:color="#777"
         android:width="1dp"
         />
 

@@ -36,6 +36,8 @@
         android:padding="10dp"
         android:layout_gravity="center_horizontal"
         android:text="About Us"
+        android:id="@+id/asiana_ab_title"
+        android:textColor="@color/colorAccent"
         android:typeface="serif"
         android:textStyle="italic"
         android:textSize="24sp"
@@ -48,6 +50,7 @@
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:paddingBottom="18dp"
+        android:id="@+id/asiana_ab_content"
         android:gravity="center_horizontal"
         android:text="@string/asiana_about"
         />

@@ -36,6 +36,8 @@
                 android:padding="10dp"
                 android:layout_gravity="center_horizontal"
                 android:text="About Us"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/cont_ab_title"
                 android:typeface="serif"
 
                 android:textStyle="italic"
@@ -49,6 +51,7 @@
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
                 android:paddingBottom="18dp"
+                android:id="@+id/cont_ab_con"
 
                 android:gravity="center_horizontal"
                 android:text="@string/continental_about"

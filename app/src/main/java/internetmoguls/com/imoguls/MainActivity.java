@@ -1,10 +1,12 @@
 package internetmoguls.com.imoguls;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -23,12 +25,39 @@ public class MainActivity extends AppCompatActivity {
     CardView asiana , elite , continental;
 
 
-
+    static Typeface tf;
+    static Typeface tf2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        tf = Typeface.createFromAsset(getAssets() , "roboto.ttf");
+        tf2 = Typeface.createFromAsset(getAssets() , "vladmir.TTF");
+
+
+        TextView tit1 = (TextView)findViewById(R.id.asiana_title);
+        TextView tit2 = (TextView)findViewById(R.id.cont_title);
+        TextView tit3 = (TextView)findViewById(R.id.elite_title);
+
+        tit1.setTypeface(tf2);
+        tit2.setTypeface(tf2);
+        tit3.setTypeface(tf2);
+
+        tit1.setTextSize(30);
+        tit2.setTextSize(30);
+        tit3.setTextSize(30);
+
+
+        TextView con1 = (TextView)findViewById(R.id.asiana_content);
+        TextView con2 = (TextView)findViewById(R.id.cont_con);
+        TextView con3 = (TextView)findViewById(R.id.elite_con);
+
+
+        con1.setTypeface(tf);
+        con2.setTypeface(tf);
+        con3.setTypeface(tf);
 
 
         asiana = (CardView)findViewById(R.id.asiana);

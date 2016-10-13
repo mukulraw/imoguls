@@ -36,10 +36,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="SUPERIOR and DELUXE ROOM"
+                    android:text="Superior &amp; Deluxe Room"
                     android:textSize="22sp"
+                    android:textColor="@color/colorAccent"
                     android:padding="10dp"
-
+                    android:id="@+id/asiana_room1_title"
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
@@ -48,7 +49,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:id="@+id/asiana_room1_con"
                     android:padding="18dp"
                     android:gravity="center_horizontal"
                     android:text="@string/asiana_room1"
@@ -92,23 +93,24 @@
                     android:scaleType="centerCrop"
                     />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="STUDIO ROOM"
-                    android:textSize="24sp"
-
-                    android:padding="10dp"
-                    android:textStyle="italic"
-                    android:typeface="serif"
-                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Studio Room"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="24sp"
+                        android:id="@+id/asiana_room2_title"
+                        android:padding="10dp"
+                        android:textStyle="italic"
+                        android:typeface="serif"
+                        />
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:id="@+id/asiana_room2_con"
                     android:gravity="center_horizontal"
                     android:padding="18dp"
                     android:text="@string/asiana_fnb_1"

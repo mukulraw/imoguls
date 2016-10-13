@@ -36,9 +36,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="DOUBLE ROOM"
+                    android:text="Double Room"
                     android:textSize="22sp"
-
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/elite_room1_title"
                     android:padding="10dp"
                     android:textStyle="italic"
                     android:typeface="serif"
@@ -49,7 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="18dp"
-
+                    android:id="@+id/elite_room1_con"
                     android:gravity="center_horizontal"
                     android:text="Hotel Kohinoor Elite offers a selection of 100 well appointed rooms divided into 80 Double rooms and 20 Twin rooms. Every room is spaciously built with an area of 270 sqft."
                     />
@@ -96,7 +97,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="TWIN ROOM"
+                    android:text="Twin Room"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/elite_room2_title"
                     android:textSize="24sp"
                     android:padding="10dp"
 
@@ -110,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:padding="18dp"
                     android:gravity="center_horizontal"
-
+                    android:id="@+id/elite_room2_con"
                     android:text="Hotel Kohinoor Elite is home to 20 well-furnished twin rooms with exquisite interiors. With all modern amenities our twin rooms have been designed to offer optimum comfort and luxury."
                     />
 

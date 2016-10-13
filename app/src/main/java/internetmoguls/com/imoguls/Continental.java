@@ -3,6 +3,9 @@ package internetmoguls.com.imoguls;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Point;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -18,6 +21,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,7 +48,8 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
     DrawerLayout drawer;
     SharedPreferences pref;
     static SharedPreferences.Editor edit;
-
+    static Typeface tf;
+    static Typeface tf2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +61,8 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
 
         NavigationView nav = (NavigationView)findViewById(R.id.navId);
 
-
+        tf = Typeface.createFromAsset(getAssets() , "roboto.ttf");
+        tf2 = Typeface.createFromAsset(getAssets() , "vladmir.TTF");
 
         View view = nav.getHeaderView(0);
         nav.setNavigationItemSelectedListener(this);
@@ -82,32 +88,87 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
         pager = (ViewPager)findViewById(R.id.pager_asiana);
 
 
+        LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
 
-        tabs.addTab(tabs.newTab().setText("ABOUT"));
-        tabs.addTab(tabs.newTab().setText("ROOMS"));
-        tabs.addTab(tabs.newTab().setText("F and B"));
-        tabs.addTab(tabs.newTab().setText("MEETING/EVENTS"));
+        View av = inflater.inflate(R.layout.tab_about , null);
+        View av1 = inflater.inflate(R.layout.tab_about , null);
+        View av2= inflater.inflate(R.layout.tab_about , null);
+        View av3 = inflater.inflate(R.layout.tab_about , null);
+
+        TextView tabtext = (TextView)av.findViewById(R.id.tab_text);
+        TextView tabtext1 = (TextView)av1.findViewById(R.id.tab_text);
+        TextView tabtext2 = (TextView)av2.findViewById(R.id.tab_text);
+        TextView tabtext3 = (TextView)av3.findViewById(R.id.tab_text);
+
+        Display display = getWindowManager().getDefaultDisplay();
+
+        Point size = new Point();
+        display.getSize(size);
+
+
+
+        tabtext.setMinWidth(size.x/3);
+        tabtext.setMaxWidth(size.x/3);
+        tabtext.setText("About");
+
+        tabtext1.setMinWidth(size.x/3);
+        tabtext1.setMaxWidth(size.x/3);
+        tabtext1.setText("Rooms");
+
+        tabtext2.setMinWidth(size.x/3);
+        tabtext2.setMaxWidth(size.x/3);
+        tabtext2.setText("F & B");
+
+        tabtext3.setMinWidth(size.x/3);
+        tabtext3.setMaxWidth(size.x/3);
+        tabtext3.setText("Meeting/Events");
+
+
 
         tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
-        //tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
+        tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
 
 
-        FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager() , tabs.getTabCount());
+        FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager() , 4);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
         pager.setAdapter(adapter);
+
+        tabs.setupWithViewPager(pager);
+        tabs.getTabAt(0).setCustomView(av);
+        tabs.getTabAt(1).setCustomView(av1);
+        tabs.getTabAt(2).setCustomView(av2);
+        tabs.getTabAt(3).setCustomView(av3);
+
+
 
         tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
                 pager.setCurrentItem(tab.getPosition());
+                View v = tab.getCustomView();
+                TextView tv = (TextView) v.findViewById(R.id.tab_text);
 
+
+
+
+
+
+
+                //tv.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                tv.setTextColor(getResources().getColor(R.color.colorAccent));
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
+                View v = tab.getCustomView();
+                TextView tv = (TextView) v.findViewById(R.id.tab_text);
 
+
+
+
+                tv.setTextColor(Color.GRAY);
             }
 
             @Override
@@ -212,6 +273,12 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
             View v = inflater.inflate(R.layout.continental_about , container , false);
             book = (Button)v.findViewById(R.id.book_asiana);
 
+            TextView title = (TextView)v.findViewById(R.id.cont_ab_title);
+            TextView con = (TextView)v.findViewById(R.id.cont_ab_con);
+
+            title.setTypeface(tf2);
+            title.setTextSize(30);
+            con.setTypeface(tf);
 
             book.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -236,6 +303,34 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.continental_rooms , container , false);
+
+
+            TextView tit1 = (TextView)v.findViewById(R.id.cont_room1_title);
+            TextView tit2 = (TextView)v.findViewById(R.id.cont_room2_title);
+            TextView tit3 = (TextView)v.findViewById(R.id.cont_room3_title);
+            TextView tit4 = (TextView)v.findViewById(R.id.cont_room4_title);
+
+            tit1.setTypeface(tf2);
+            tit2.setTypeface(tf2);
+            tit3.setTypeface(tf2);
+            tit4.setTypeface(tf2);
+
+
+            tit1.setTextSize(30);
+            tit2.setTextSize(30);
+            tit3.setTextSize(30);
+            tit4.setTextSize(30);
+
+            TextView con1 = (TextView)v.findViewById(R.id.cont_room1_con);
+            TextView con2 = (TextView)v.findViewById(R.id.cont_room2_con);
+            TextView con3 = (TextView)v.findViewById(R.id.cont_room3_con);
+            TextView con4 = (TextView)v.findViewById(R.id.cont_room4_con);
+
+            con1.setTypeface(tf);
+            con2.setTypeface(tf);
+            con3.setTypeface(tf);
+            con4.setTypeface(tf);
+
 
             b1 = (Button)v.findViewById(R.id.asiana_room_1);
             b2 = (Button)v.findViewById(R.id.asiana_room_2);
@@ -307,6 +402,10 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
 
             hide = (TextView)v.findViewById(R.id.hide);
 
+            TextView title = (TextView)v.findViewById(R.id.asiana_fnb_title);
+            title.setTypeface(tf2);
+            title.setTextSize(30);
+
             grid = (RecyclerView)v.findViewById(R.id.fnb_list);
 
             grid.setLayoutManager(manager);
@@ -370,6 +469,14 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.continental_meeting , container , false);
+
+            TextView tit = (TextView)v.findViewById(R.id.cont_meeting_title);
+
+
+            tit.setTypeface(tf2);
+            tit.setTextSize(30);
+
+
 
             name = (EditText)v.findViewById(R.id.cont_m_name);
             email = (EditText)v.findViewById(R.id.cont_m_email);

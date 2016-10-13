@@ -36,8 +36,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="SUPERIOR ROOM"
-
+                    android:text="Superior Room"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/cont_room1_title"
                     android:textSize="22sp"
                     android:padding="10dp"
                     android:textStyle="italic"
@@ -47,6 +48,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
+                    android:id="@+id/cont_room1_con"
                     android:layout_height="wrap_content"
 
                     android:padding="18dp"
@@ -96,8 +98,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="PREMIUM ROOM"
+                    android:text="Premium Room"
+                    android:textColor="@color/colorAccent"
                     android:textSize="24sp"
+                    android:id="@+id/cont_room2_title"
                     android:padding="10dp"
 
                     android:textStyle="italic"
@@ -109,6 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="18dp"
+                    android:id="@+id/cont_room2_con"
                     android:gravity="center_horizontal"
 
                     android:text="@string/cont_room_2"
@@ -157,8 +162,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="SAPPHIRE SUITE"
+                    android:text="Sapphire Suite"
                     android:textSize="24sp"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/cont_room3_title"
                     android:padding="10dp"
 
                     android:textStyle="italic"
@@ -170,7 +177,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="18dp"
-
+                    android:id="@+id/cont_room3_con"
                     android:gravity="center_horizontal"
                     android:text="@string/cont_room_3"
                     />
@@ -217,8 +224,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="TOPAZ SUITE"
+                    android:text="Topaz Suite"
                     android:textSize="24sp"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/cont_room4_title"
                     android:padding="10dp"
 
                     android:textStyle="italic"
@@ -229,7 +238,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:id="@+id/cont_room4_con"
                     android:padding="18dp"
                     android:gravity="center_horizontal"
                     android:text="@string/cont_room_4"
