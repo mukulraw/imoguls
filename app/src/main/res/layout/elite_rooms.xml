@@ -40,7 +40,7 @@
                     android:textSize="22sp"
                     android:textColor="@color/colorAccent"
                     android:id="@+id/elite_room1_title"
-                    android:padding="10dp"
+                    android:padding="18dp"
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
@@ -101,7 +101,7 @@
                     android:textColor="@color/colorAccent"
                     android:id="@+id/elite_room2_title"
                     android:textSize="24sp"
-                    android:padding="10dp"
+                    android:padding="18dp"
 
                     android:textStyle="italic"
                     android:typeface="serif"

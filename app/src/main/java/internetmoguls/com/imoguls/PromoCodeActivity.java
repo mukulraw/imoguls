@@ -1,9 +1,11 @@
 package internetmoguls.com.imoguls;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +27,19 @@ public class PromoCodeActivity extends AppCompatActivity {
     PromoAdapter adapter;
     RecyclerView grid;
     GridLayoutManager manager;
-
+    static Typeface tf2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_promo_code);
+        tf2 = Typeface.createFromAsset(getAssets() , "vladmir.TTF");
+
+        TextView title = (TextView)findViewById(R.id.promo_title);
+
+        title.setTypeface(tf2);
+
+
+        title.setTextSize(30);
 
         manager = new GridLayoutManager(this , 1);
         grid = (RecyclerView)findViewById(R.id.promo_list);

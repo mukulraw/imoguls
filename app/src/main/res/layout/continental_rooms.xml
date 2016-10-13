@@ -40,7 +40,7 @@
                     android:textColor="@color/colorAccent"
                     android:id="@+id/cont_room1_title"
                     android:textSize="22sp"
-                    android:padding="10dp"
+                    android:padding="18dp"
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
@@ -102,7 +102,7 @@
                     android:textColor="@color/colorAccent"
                     android:textSize="24sp"
                     android:id="@+id/cont_room2_title"
-                    android:padding="10dp"
+                    android:padding="18dp"
 
                     android:textStyle="italic"
                     android:typeface="serif"
@@ -166,7 +166,7 @@
                     android:textSize="24sp"
                     android:textColor="@color/colorAccent"
                     android:id="@+id/cont_room3_title"
-                    android:padding="10dp"
+                    android:padding="18dp"
 
                     android:textStyle="italic"
                     android:typeface="serif"
@@ -228,7 +228,7 @@
                     android:textSize="24sp"
                     android:textColor="@color/colorAccent"
                     android:id="@+id/cont_room4_title"
-                    android:padding="10dp"
+                    android:padding="18dp"
 
                     android:textStyle="italic"
                     android:typeface="serif"

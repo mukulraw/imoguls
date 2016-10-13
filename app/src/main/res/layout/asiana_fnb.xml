@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Food and Beverages offers"
-        android:padding="10dp"
+        android:padding="28dp"
         android:typeface="serif"
         android:id="@+id/asiana_fnb_title"
         android:textColor="@color/colorAccent"

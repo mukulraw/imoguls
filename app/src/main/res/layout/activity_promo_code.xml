@@ -13,9 +13,10 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:padding="10dp"
+        android:padding="18dp"
         android:textSize="20sp"
-        android:text="Your PROMO codes"
+        android:id="@+id/promo_title"
+        android:text="Your promo codes"
         android:textColor="@color/colorAccent"
         android:typeface="serif"
         />

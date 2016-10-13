@@ -39,7 +39,7 @@
                     android:text="Superior &amp; Deluxe Room"
                     android:textSize="22sp"
                     android:textColor="@color/colorAccent"
-                    android:padding="10dp"
+                    android:padding="18dp"
                     android:id="@+id/asiana_room1_title"
                     android:textStyle="italic"
                     android:typeface="serif"
@@ -101,7 +101,7 @@
                         android:textColor="@color/colorAccent"
                         android:textSize="24sp"
                         android:id="@+id/asiana_room2_title"
-                        android:padding="10dp"
+                        android:padding="18dp"
                         android:textStyle="italic"
                         android:typeface="serif"
                         />
