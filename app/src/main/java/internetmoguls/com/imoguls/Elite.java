@@ -44,7 +44,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class Elite extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener{
 
     TabLayout tabs;
-    ViewPager pager;
+    MyViewPager pager;
     SharedPreferences pref;
     static SharedPreferences.Editor edit;
     DrawerLayout drawer;
@@ -87,7 +87,9 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
 
 
         tabs = (TabLayout)findViewById(R.id.tabs_asiana);
-        pager = (ViewPager)findViewById(R.id.pager_asiana);
+        pager = (MyViewPager) findViewById(R.id.pager_asiana);
+
+        pager.setSwipeable(false);
 
         LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
 

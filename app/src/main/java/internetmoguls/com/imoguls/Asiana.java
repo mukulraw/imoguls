@@ -50,7 +50,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class Asiana extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     TabLayout tabs;
-    ViewPager pager;
+    MyViewPager pager;
     DrawerLayout drawer;
     SharedPreferences pref;
     static SharedPreferences.Editor edit;
@@ -95,8 +95,10 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
 
 
         tabs = (TabLayout)findViewById(R.id.tabs_asiana);
-        pager = (ViewPager)findViewById(R.id.pager_asiana);
+        pager = (MyViewPager) findViewById(R.id.pager_asiana);
 
+
+        pager.setSwipeable(false);
 
         tabs.setFitsSystemWindows(true);
 
