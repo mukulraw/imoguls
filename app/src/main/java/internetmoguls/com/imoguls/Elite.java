@@ -3,6 +3,7 @@ package internetmoguls.com.imoguls;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
@@ -10,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -30,6 +32,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import INTERFACES.Register;
 import POJO.RegisterBean;
@@ -97,11 +106,13 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         View av1 = inflater.inflate(R.layout.tab_about , null);
         View av2= inflater.inflate(R.layout.tab_about , null);
         View av3 = inflater.inflate(R.layout.tab_about , null);
+        View av4 = inflater.inflate(R.layout.tab_about, null);
 
         TextView tabtext = (TextView)av.findViewById(R.id.tab_text);
         TextView tabtext1 = (TextView)av1.findViewById(R.id.tab_text);
         TextView tabtext2 = (TextView)av2.findViewById(R.id.tab_text);
         TextView tabtext3 = (TextView)av3.findViewById(R.id.tab_text);
+        TextView tabtext4 = (TextView) av4.findViewById(R.id.tab_text);
 
         Display display = getWindowManager().getDefaultDisplay();
 
@@ -126,14 +137,16 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         tabtext3.setMaxWidth(size.x/3);
         tabtext3.setText("Meeting/Events");
 
-
+        tabtext4.setMinWidth(size.x / 3);
+        tabtext4.setMaxWidth(size.x / 3);
+        tabtext4.setText("Contact us");
 
 
 
         tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
 
-        FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager() , 4);
+        FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager() , 5);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
         pager.setAdapter(adapter);
@@ -144,7 +157,7 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         tabs.getTabAt(1).setCustomView(av1);
         tabs.getTabAt(2).setCustomView(av2);
         tabs.getTabAt(3).setCustomView(av3);
-
+        tabs.getTabAt(4).setCustomView(av4);
 
 
         tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -255,6 +268,8 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
                     return new fnb();
                 case 3:
                     return new meetings();
+                case 4:
+                    return new contact();
             }
 
 
@@ -268,6 +283,64 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         }
 
 
+    }
+
+
+    public static class contact extends Fragment {
+
+
+        GoogleMap mMap;
+
+        TextView title;
+
+        @Nullable
+        @Override
+        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.contact_elite, container, false);
+
+
+            final SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.eventMapView);
+
+
+            mapFragment.getMapAsync(new OnMapReadyCallback() {
+                @Override
+                public void onMapReady(GoogleMap googleMap) {
+
+                    mMap = googleMap;
+
+                    LatLng loc = new LatLng(19.080820, 72.885523);
+
+                    mMap.addMarker(new MarkerOptions().position(loc).title("Kohinoor Elite"));
+
+                    mMap.animateCamera(CameraUpdateFactory.newLatLng(loc));
+
+                    if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
+                    }
+                    mMap.setMyLocationEnabled(true);
+
+                }
+            });
+
+
+            title = (TextView)view.findViewById(R.id.contact_asiana_title);
+
+            title.setTypeface(tf2);
+            title.setTextSize(30);
+
+
+
+
+
+            return view;
+        }
     }
 
 

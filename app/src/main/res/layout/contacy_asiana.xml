@@ -27,6 +27,7 @@
         android:text="+91 44 674 11 000"
         android:textSize="18sp"
         android:padding="10dp"
+        android:autoLink="phone"
         android:textColor="#6891f1"
 
         />
@@ -49,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/eventMapView"
-        map:cameraBearing="112.5"
+
         map:cameraTilt="30"
         android:layout_margin="10dp"
         map:cameraZoom="13"
