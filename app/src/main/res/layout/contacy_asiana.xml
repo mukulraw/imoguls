@@ -1,7 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/contact_asiana_title"
+        android:layout_gravity="center_horizontal"
+        android:padding="18dp"
+        android:text="Contact us"
+        android:textColor="@color/colorAccent"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="+91 44 674 11 000"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:textColor="#6891f1"
+
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="1/238, Old Mahabalipuram Road (OMR),
+ Semmencherry,
+ Chennai - 600 119, Tamilnadu, INDIA."
+        />
+
+
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/eventMapView"
+        map:cameraBearing="112.5"
+        map:cameraTilt="30"
+        android:layout_margin="10dp"
+        map:cameraZoom="13"
+        map:mapType="normal"
+        map:uiCompass="true"
+        map:uiRotateGestures="true"
+        map:uiScrollGestures="true"
+        map:uiTiltGestures="true"
+        map:uiZoomControls="false"
+        map:uiZoomGestures="true"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        />
 
 
 

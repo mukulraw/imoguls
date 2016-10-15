@@ -3,6 +3,7 @@ package internetmoguls.com.imoguls;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
@@ -10,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -33,6 +35,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.IOException;
@@ -56,18 +66,19 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
     static SharedPreferences.Editor edit;
     static Typeface tf;
     static Typeface tf2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asiana);
-        pref = getSharedPreferences("myPref" , Context.MODE_PRIVATE);
+        pref = getSharedPreferences("myPref", Context.MODE_PRIVATE);
         edit = pref.edit();
 
-        bean b = (bean)getApplicationContext();
+        bean b = (bean) getApplicationContext();
 
-        NavigationView nav = (NavigationView)findViewById(R.id.navId);
-        tf = Typeface.createFromAsset(getAssets() , "roboto.ttf");
-        tf2 = Typeface.createFromAsset(getAssets() , "vladmir.TTF");
+        NavigationView nav = (NavigationView) findViewById(R.id.navId);
+        tf = Typeface.createFromAsset(getAssets(), "roboto.ttf");
+        tf2 = Typeface.createFromAsset(getAssets(), "vladmir.TTF");
 
 
         View view = nav.getHeaderView(0);
@@ -75,15 +86,15 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
 
         nav.setNavigationItemSelectedListener(this);
 
-        TextView tv = (TextView)view.findViewById(R.id.nav_name);
+        TextView tv = (TextView) view.findViewById(R.id.nav_name);
 
 
         tv.setText(b.username);
 
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        drawer = (DrawerLayout)findViewById(R.id.drawer_asiana);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_asiana);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -91,10 +102,7 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
         toggle.syncState();
 
 
-
-
-
-        tabs = (TabLayout)findViewById(R.id.tabs_asiana);
+        tabs = (TabLayout) findViewById(R.id.tabs_asiana);
         pager = (MyViewPager) findViewById(R.id.pager_asiana);
 
 
@@ -102,17 +110,19 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
 
         tabs.setFitsSystemWindows(true);
 
-        LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 
-        View av = inflater.inflate(R.layout.tab_about , null);
-        View av1 = inflater.inflate(R.layout.tab_about , null);
-        View av2= inflater.inflate(R.layout.tab_about , null);
-        View av3 = inflater.inflate(R.layout.tab_about , null);
+        View av = inflater.inflate(R.layout.tab_about, null);
+        View av1 = inflater.inflate(R.layout.tab_about, null);
+        View av2 = inflater.inflate(R.layout.tab_about, null);
+        View av3 = inflater.inflate(R.layout.tab_about, null);
+        View av4 = inflater.inflate(R.layout.tab_about, null);
 
-        TextView tabtext = (TextView)av.findViewById(R.id.tab_text);
-        TextView tabtext1 = (TextView)av1.findViewById(R.id.tab_text);
-        TextView tabtext2 = (TextView)av2.findViewById(R.id.tab_text);
-        TextView tabtext3 = (TextView)av3.findViewById(R.id.tab_text);
+        TextView tabtext = (TextView) av.findViewById(R.id.tab_text);
+        TextView tabtext1 = (TextView) av1.findViewById(R.id.tab_text);
+        TextView tabtext2 = (TextView) av2.findViewById(R.id.tab_text);
+        TextView tabtext3 = (TextView) av3.findViewById(R.id.tab_text);
+        TextView tabtext4 = (TextView) av4.findViewById(R.id.tab_text);
 
         Display display = getWindowManager().getDefaultDisplay();
 
@@ -120,41 +130,39 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
         display.getSize(size);
 
 
-
-        tabtext.setMinWidth(size.x/3);
-        tabtext.setMaxWidth(size.x/3);
+        tabtext.setMinWidth(size.x / 3);
+        tabtext.setMaxWidth(size.x / 3);
         tabtext.setText("About");
 
-        tabtext1.setMinWidth(size.x/3);
-        tabtext1.setMaxWidth(size.x/3);
+        tabtext1.setMinWidth(size.x / 3);
+        tabtext1.setMaxWidth(size.x / 3);
         tabtext1.setText("Rooms");
 
-        tabtext2.setMinWidth(size.x/3);
-        tabtext2.setMaxWidth(size.x/3);
+        tabtext2.setMinWidth(size.x / 3);
+        tabtext2.setMaxWidth(size.x / 3);
         tabtext2.setText("F & B");
 
-        tabtext3.setMinWidth(size.x/3);
-        tabtext3.setMaxWidth(size.x/3);
+        tabtext3.setMinWidth(size.x / 3);
+        tabtext3.setMaxWidth(size.x / 3);
         tabtext3.setText("Meeting/Events");
+
+        tabtext4.setMinWidth(size.x / 3);
+        tabtext4.setMaxWidth(size.x / 3);
+        tabtext4.setText("Contact us");
 
 //        tabs.addTab(tabs.newTab().setCustomView(av));
 
-  //      tabs.addTab(tabs.newTab().setText("ROOMS"));
-      //  tabs.addTab(tabs.newTab().setText("F and B"));
-    //    tabs.addTab(tabs.newTab().setText("MEETING/EVENTS"));
+        //      tabs.addTab(tabs.newTab().setText("ROOMS"));
+        //  tabs.addTab(tabs.newTab().setText("F and B"));
+        //    tabs.addTab(tabs.newTab().setText("MEETING/EVENTS"));
         tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
-
-
-
 
 
         tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
 
 
-
-
-        FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager() , 4);
-pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
+        FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager(), 5);
+        pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
         pager.setAdapter(adapter);
 
@@ -164,9 +172,7 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.getTabAt(1).setCustomView(av1);
         tabs.getTabAt(2).setCustomView(av2);
         tabs.getTabAt(3).setCustomView(av3);
-
-
-
+        tabs.getTabAt(4).setCustomView(av4);
 
 
         tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -176,11 +182,6 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs))
                 pager.setCurrentItem(tab.getPosition());
                 View v = tab.getCustomView();
                 TextView tv = (TextView) v.findViewById(R.id.tab_text);
-
-
-
-
-
 
 
                 //tv.setBackgroundColor(getResources().getColor(R.color.colorAccent));
@@ -193,8 +194,6 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs))
                 TextView tv = (TextView) v.findViewById(R.id.tab_text);
 
 
-
-
                 tv.setTextColor(Color.GRAY);
             }
 
@@ -203,7 +202,6 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs))
 
             }
         });
-
 
 
     }
@@ -215,31 +213,29 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs))
         if (id == R.id.nav_log_out) {
 
 
+            bean b = (bean) getApplicationContext();
 
-            bean b = (bean)getApplicationContext();
-
-            Intent delService = new Intent(this , DeleteTokenService.class);
+            Intent delService = new Intent(this, DeleteTokenService.class);
             startService(delService);
 
             b.userId = "";
             b.username = "";
-            edit.putBoolean("email" , false);
+            edit.putBoolean("email", false);
             edit.remove("emailId");
             edit.remove("RegId");
             edit.remove("password");
             edit.apply();
 
-            Intent i = new Intent(Asiana.this , LoginActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            Intent i = new Intent(Asiana.this, LoginActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
             finish();
 
         }
 
-        if (id == R.id.nav_camera)
-        {
+        if (id == R.id.nav_camera) {
 
-            Intent i = new Intent(Asiana.this , PromoCodeActivity.class);
+            Intent i = new Intent(Asiana.this, PromoCodeActivity.class);
             startActivity(i);
 
 
@@ -272,6 +268,9 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs))
                     return new fnb();
                 case 3:
                     return new meetings();
+                case 4:
+                    return new contact();
+
             }
 
 
@@ -285,6 +284,64 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs))
         }
 
 
+    }
+
+
+    public static class contact extends Fragment {
+
+
+        GoogleMap mMap;
+
+        TextView title;
+
+        @Nullable
+        @Override
+        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.contacy_asiana, container, false);
+
+
+            final SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.eventMapView);
+
+
+            mapFragment.getMapAsync(new OnMapReadyCallback() {
+                @Override
+                public void onMapReady(GoogleMap googleMap) {
+
+                    mMap = googleMap;
+
+                    LatLng loc = new LatLng(12.864030, 80.227218);
+
+                    mMap.addMarker(new MarkerOptions().position(loc).title("Kohinoor Asiana"));
+
+                    mMap.animateCamera(CameraUpdateFactory.newLatLng(loc));
+
+                    if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
+                    }
+                    mMap.setMyLocationEnabled(true);
+
+                }
+            });
+
+
+            title = (TextView)view.findViewById(R.id.contact_asiana_title);
+
+            title.setTypeface(tf2);
+            title.setTextSize(30);
+
+
+
+
+
+            return view;
+        }
     }
 
 
