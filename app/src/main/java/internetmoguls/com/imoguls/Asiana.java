@@ -32,6 +32,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +46,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.IOException;
 
@@ -440,16 +443,18 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
 
     public static class fnb extends Fragment{
 
-        FnBListAdapter adapter;
+        //FnBListAdapter adapter;
 
-        RecyclerView grid;
-        GridLayoutManager manager;
-        TextView hide;
+        //RecyclerView grid;
+        //GridLayoutManager manager;
+        //TextView hide;
+
+        LinearLayout todaysOffer , moreOffers;
 
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            manager = new GridLayoutManager(getContext() , 1);
+           // manager = new GridLayoutManager(getContext() , 1);
 
         }
 
@@ -458,15 +463,19 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.asiana_fnb , container , false);
 
+            todaysOffer = (LinearLayout)v.findViewById(R.id.layout_todays_offer);
+            moreOffers = (LinearLayout)v.findViewById(R.id.fnb_more_offers);
+
+
             TextView title = (TextView)v.findViewById(R.id.asiana_fnb_title);
             title.setTypeface(tf2);
             title.setTextSize(30);
 
-            hide = (TextView)v.findViewById(R.id.hide);
+            //hide = (TextView)v.findViewById(R.id.hide);
 
-            grid = (RecyclerView)v.findViewById(R.id.fnb_list);
+           // grid = (RecyclerView)v.findViewById(R.id.fnb_list);
 
-            grid.setLayoutManager(manager);
+           // grid.setLayoutManager(manager);
 
 
             Retrofit retrofit = new Retrofit.Builder()
@@ -487,18 +496,66 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
 
                     if (response.body().getPosts()!=null)
                     {
-                        adapter = new FnBListAdapter(getContext() , response.body().getPosts());
 
-                        grid.setAdapter(adapter);
+                        for (int i = 0 ; i<response.body().getPosts().size() ; i++)
+                        {
+                            if (response.body().getPosts().get(i).getPost().getOfferDay().equals("1"))
+                            {
+                                ImageLoader imageLoader = ImageLoader.getInstance();
+                                LayoutInflater inflater1 = (LayoutInflater)getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
 
-                        hide.setVisibility(View.GONE);
-                        grid.setVisibility(View.VISIBLE);
+                                View view = inflater1.inflate(R.layout.fnb_model , null);
+
+                                ImageView banner = (ImageView)view.findViewById(R.id.fnb_offer_image);
+                                TextView title = (TextView)view.findViewById(R.id.fnb_offer_name);
+                                TextView desc = (TextView)view.findViewById(R.id.fnb_offer_desc);
+
+                                imageLoader.displayImage(response.body().getPosts().get(i).getPost().getImage() , banner);
+
+                                title.setText(response.body().getPosts().get(i).getPost().getOfferName());
+                                desc.setText(response.body().getPosts().get(i).getPost().getDescription());
+
+                                todaysOffer.addView(view);
+
+
+
+                            }
+                            else
+                            {
+                                ImageLoader imageLoader = ImageLoader.getInstance();
+                                LayoutInflater inflater1 = (LayoutInflater)getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+
+                                View view = inflater1.inflate(R.layout.fnb_model , null);
+
+                                ImageView banner = (ImageView)view.findViewById(R.id.fnb_offer_image);
+                                TextView title = (TextView)view.findViewById(R.id.fnb_offer_name);
+                                TextView desc = (TextView)view.findViewById(R.id.fnb_offer_desc);
+
+                                imageLoader.displayImage(response.body().getPosts().get(i).getPost().getImage() , banner);
+
+                                title.setText(response.body().getPosts().get(i).getPost().getOfferName());
+                                desc.setText(response.body().getPosts().get(i).getPost().getDescription());
+
+                                moreOffers.addView(view);
+                            }
+
+
+                        }
+
+
+
+                       // adapter = new FnBListAdapter(getContext() , response.body().getPosts());
+
+                      //  grid.setAdapter(adapter);
+
+                        //hide.setVisibility(View.GONE);
+                       // grid.setVisibility(View.VISIBLE);
 
                     }
                     else
                     {
-                        hide.setVisibility(View.VISIBLE);
-                        grid.setVisibility(View.GONE);
+                        //hide.setVisibility(View.VISIBLE);
+                      //  grid.setVisibility(View.GONE);
                     }
 
 

@@ -29,5 +29,4 @@ public class fnbBean {
     public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
-
 }

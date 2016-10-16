@@ -21,6 +21,12 @@ public class Post_ {
     @SerializedName("4")
     @Expose
     private String _4;
+    @SerializedName("5")
+    @Expose
+    private String _5;
+    @SerializedName("6")
+    @Expose
+    private String _6;
     @SerializedName("offer_id")
     @Expose
     private String offerId;
@@ -33,6 +39,12 @@ public class Post_ {
     @SerializedName("image")
     @Expose
     private String image;
+    @SerializedName("description")
+    @Expose
+    private String description;
+    @SerializedName("offer_day")
+    @Expose
+    private String offerDay;
     @SerializedName("created")
     @Expose
     private String created;
@@ -130,6 +142,42 @@ public class Post_ {
     /**
      *
      * @return
+     * The _5
+     */
+    public String get5() {
+        return _5;
+    }
+
+    /**
+     *
+     * @param _5
+     * The 5
+     */
+    public void set5(String _5) {
+        this._5 = _5;
+    }
+
+    /**
+     *
+     * @return
+     * The _6
+     */
+    public String get6() {
+        return _6;
+    }
+
+    /**
+     *
+     * @param _6
+     * The 6
+     */
+    public void set6(String _6) {
+        this._6 = _6;
+    }
+
+    /**
+     *
+     * @return
      * The offerId
      */
     public String getOfferId() {
@@ -197,6 +245,42 @@ public class Post_ {
      */
     public void setImage(String image) {
         this.image = image;
+    }
+
+    /**
+     *
+     * @return
+     * The description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     *
+     * @param description
+     * The description
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     *
+     * @return
+     * The offerDay
+     */
+    public String getOfferDay() {
+        return offerDay;
+    }
+
+    /**
+     *
+     * @param offerDay
+     * The offer_day
+     */
+    public void setOfferDay(String offerDay) {
+        this.offerDay = offerDay;
     }
 
     /**
