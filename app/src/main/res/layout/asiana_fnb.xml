@@ -38,6 +38,8 @@
             android:gravity="center_horizontal"
             android:text="Today's offer"
             android:padding="18dp"
+            android:id="@+id/todaysoffer"
+            android:visibility="gone"
             android:typeface="serif"
             android:textSize="20sp"
             />
@@ -64,6 +66,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="More offers"
+                android:id="@+id/moreoffers"
+                android:visibility="gone"
                 android:padding="18dp"
                 android:typeface="serif"
                 android:textSize="20sp"

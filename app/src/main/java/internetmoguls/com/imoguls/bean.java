@@ -2,7 +2,8 @@ package internetmoguls.com.imoguls;
 
 import android.app.Application;
 import android.content.Context;
-
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -13,7 +14,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
-public class bean extends Application {
+public class bean extends MultiDexApplication {
 
 
     String userId = "";
@@ -24,6 +25,7 @@ public class bean extends Application {
     public void onCreate() {
         super.onCreate();
 
+        MultiDex.install(this);
 
 
 

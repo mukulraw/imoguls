@@ -479,6 +479,8 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
 
         LinearLayout todaysOffer , moreOffers;
 
+        TextView todaysoffer , moreoffer;
+
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -494,6 +496,8 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
             todaysOffer = (LinearLayout)v.findViewById(R.id.layout_todays_offer);
             moreOffers = (LinearLayout)v.findViewById(R.id.fnb_more_offers);
 
+            todaysoffer = (TextView)v.findViewById(R.id.todaysoffer);
+            moreoffer = (TextView)v.findViewById(R.id.moreoffers);
 
             TextView title = (TextView)v.findViewById(R.id.asiana_fnb_title);
             title.setTypeface(tf2);
@@ -529,6 +533,8 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
                         {
                             if (response.body().getPosts().get(i).getPost().getOfferDay().equals("1"))
                             {
+                                todaysoffer.setVisibility(View.VISIBLE);
+
                                 ImageLoader imageLoader = ImageLoader.getInstance();
                                 LayoutInflater inflater1 = (LayoutInflater)getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
 
@@ -563,6 +569,9 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
                             }
                             else
                             {
+
+                                moreoffer.setVisibility(View.VISIBLE);
+
                                 ImageLoader imageLoader = ImageLoader.getInstance();
                                 LayoutInflater inflater1 = (LayoutInflater)getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
 

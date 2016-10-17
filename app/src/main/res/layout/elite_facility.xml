@@ -3,11 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+
+
 
         <TextView
             android:layout_width="match_parent"
@@ -18,7 +21,6 @@
             android:id="@+id/asiana_facilities_title"
             android:textColor="@color/colorAccent"
             />
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,6 +61,58 @@
             <ImageView
                 android:layout_width="?attr/listPreferredItemHeight"
                 android:layout_height="?attr/listPreferredItemHeight"
+                android:src="@drawable/homefacilitiesiconwifi"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Complimentary Wi Fi"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#f5f5f5"
+            >
+
+            <ImageView
+                android:layout_width="?attr/listPreferredItemHeight"
+                android:layout_height="?attr/listPreferredItemHeight"
+                android:src="@drawable/homefacilitiesiconcoffeemaker"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Coffee/Tea maker"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#f5f5f5"
+            >
+
+            <ImageView
+                android:layout_width="?attr/listPreferredItemHeight"
+                android:layout_height="?attr/listPreferredItemHeight"
                 android:src="@drawable/homefacilitiesiconminibar"
                 />
             <TextView
@@ -86,6 +140,60 @@
             <ImageView
                 android:layout_width="?attr/listPreferredItemHeight"
                 android:layout_height="?attr/listPreferredItemHeight"
+                android:src="@drawable/homefacilitiesiconsafe"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:text="In Room Safe"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#f5f5f5"
+            >
+
+            <ImageView
+                android:layout_width="?attr/listPreferredItemHeight"
+                android:layout_height="?attr/listPreferredItemHeight"
+                android:src="@drawable/homefacilitiesiconac"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Individually Controlled Air Conditioning"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#f5f5f5"
+            >
+
+            <ImageView
+                android:layout_width="?attr/listPreferredItemHeight"
+                android:layout_height="?attr/listPreferredItemHeight"
                 android:src="@drawable/homefacilitiesiconiron"
                 />
             <TextView
@@ -94,11 +202,13 @@
                 android:gravity="center_vertical"
                 android:padding="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Iron / Ironing Board"
+                android:text="Iron / Ironing Board(On Request)"
                 android:textSize="14sp"
                 />
 
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -125,57 +235,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/homefacilitiesiconwifi"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="Complimentary Wi Fi"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/homefacilitiesiconsafe"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="In Room safe"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -202,6 +261,7 @@
                 />
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -242,58 +302,6 @@
             <ImageView
                 android:layout_width="?attr/listPreferredItemHeight"
                 android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/homefacilitiesiconcoffeemaker"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="Coffee/Tea maker"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/homefacilitiesiconac"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="Individually Controlled Air Conditioning"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
                 android:src="@drawable/homefacilitiesiconservice"
                 />
             <TextView
@@ -303,33 +311,6 @@
                 android:padding="10dp"
                 android:layout_marginStart="10dp"
                 android:text="Housekeeping"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/shoeshine"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="Shoeshine"
                 android:textSize="14sp"
                 />
 
@@ -346,10 +327,6 @@
             android:textColor="@color/colorAccent"
             />
 
-
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -362,34 +339,7 @@
             <ImageView
                 android:layout_width="?attr/listPreferredItemHeight"
                 android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/homefacilitiesicontraveldesk"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="Travel desk"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/homefacilitiesiconservice"
+                android:src="@drawable/homefacilitiesiconparking"
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -416,6 +366,60 @@
             <ImageView
                 android:layout_width="?attr/listPreferredItemHeight"
                 android:layout_height="?attr/listPreferredItemHeight"
+                android:src="@drawable/homefacilitiesiconpickup"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Airport Transfers"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#f5f5f5"
+            >
+
+            <ImageView
+                android:layout_width="?attr/listPreferredItemHeight"
+                android:layout_height="?attr/listPreferredItemHeight"
+                android:src="@drawable/homefacilitiesicondining"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Restaurant"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#f5f5f5"
+            >
+
+            <ImageView
+                android:layout_width="?attr/listPreferredItemHeight"
+                android:layout_height="?attr/listPreferredItemHeight"
                 android:src="@drawable/homefacilitiesiconsmoke"
                 />
             <TextView
@@ -424,59 +428,7 @@
                 android:gravity="center_vertical"
                 android:padding="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Smoking/ Non Smoking Room"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/homefacilitiesicongym"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="Fitness Centre"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/homefacilitiesiconpool"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="Swimming Pool"
+                android:text="Smoking/Non Smoking Room"
                 android:textSize="14sp"
                 />
 
@@ -509,95 +461,11 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/homefacilitiesiconpickup"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="Airport Transfers"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/homefacilitiesicondining"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="Restaurant"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="#f5f5f5"
-            >
-
-            <ImageView
-                android:layout_width="?attr/listPreferredItemHeight"
-                android:layout_height="?attr/listPreferredItemHeight"
-                android:src="@drawable/breakfast"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:text="Complimentary buffet"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-
-
-
-
-
 
 
 
 
 
     </LinearLayout>
-
 
 </android.support.v4.widget.NestedScrollView>

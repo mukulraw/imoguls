@@ -110,12 +110,14 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         View av2= inflater.inflate(R.layout.tab_about , null);
         View av3 = inflater.inflate(R.layout.tab_about , null);
         View av4 = inflater.inflate(R.layout.tab_about, null);
+        View av5 = inflater.inflate(R.layout.tab_about, null);
 
         TextView tabtext = (TextView)av.findViewById(R.id.tab_text);
         TextView tabtext1 = (TextView)av1.findViewById(R.id.tab_text);
         TextView tabtext2 = (TextView)av2.findViewById(R.id.tab_text);
         TextView tabtext3 = (TextView)av3.findViewById(R.id.tab_text);
         TextView tabtext4 = (TextView) av4.findViewById(R.id.tab_text);
+        TextView tabtext5 = (TextView) av5.findViewById(R.id.tab_text);
 
         Display display = getWindowManager().getDefaultDisplay();
 
@@ -144,12 +146,15 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         tabtext4.setMaxWidth(size.x / 3);
         tabtext4.setText("Contact us");
 
+        tabtext5.setMinWidth(size.x / 3);
+        tabtext5.setMaxWidth(size.x / 3);
+        tabtext5.setText("Facilities");
 
 
         tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
 
-        FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager() , 5);
+        FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager() , 6);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
         pager.setAdapter(adapter);
@@ -159,8 +164,9 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         tabs.getTabAt(0).setCustomView(av);
         tabs.getTabAt(1).setCustomView(av1);
         tabs.getTabAt(2).setCustomView(av2);
-        tabs.getTabAt(3).setCustomView(av3);
-        tabs.getTabAt(4).setCustomView(av4);
+        tabs.getTabAt(3).setCustomView(av5);
+        tabs.getTabAt(4).setCustomView(av3);
+        tabs.getTabAt(5).setCustomView(av4);
 
 
         tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -270,8 +276,10 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
                 case 2:
                     return new fnb();
                 case 3:
-                    return new meetings();
+                    return new facilities();
                 case 4:
+                    return new meetings();
+                case 5:
                     return new contact();
             }
 
@@ -285,6 +293,28 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
             return count;
         }
 
+
+    }
+
+
+
+    public static class facilities extends Fragment{
+
+        @Nullable
+        @Override
+        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.elite_facility , container , false);
+
+            TextView title = (TextView)view.findViewById(R.id.asiana_facilities_title);
+            TextView title2 = (TextView)view.findViewById(R.id.asiana_facilities_title2);
+
+            title.setTypeface(tf2);
+            title2.setTypeface(tf2);
+            title.setTextSize(30);
+            title2.setTextSize(30);
+
+            return view;
+        }
 
     }
 
@@ -444,6 +474,7 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         //GridLayoutManager manager;
         //TextView hide;
        LinearLayout todaysOffer , moreOffers;
+        TextView todaysoffer , moreoffer;
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -458,6 +489,9 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
             todaysOffer = (LinearLayout)v.findViewById(R.id.layout_todays_offer);
             moreOffers = (LinearLayout)v.findViewById(R.id.fnb_more_offers);
             //hide = (TextView)v.findViewById(R.id.hide);
+            todaysoffer = (TextView)v.findViewById(R.id.todaysoffer);
+            moreoffer = (TextView)v.findViewById(R.id.moreoffers);
+
             TextView title = (TextView)v.findViewById(R.id.asiana_fnb_title);
             title.setTypeface(tf2);
             title.setTextSize(30);
@@ -488,7 +522,7 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
                         for (int i = 0 ; i<response.body().getPosts().size() ; i++)
                         {
                             if (response.body().getPosts().get(i).getPost().getOfferDay().equals("1"))
-                            {
+                            {todaysoffer.setVisibility(View.VISIBLE);
                                 ImageLoader imageLoader = ImageLoader.getInstance();
                                 LayoutInflater inflater1 = (LayoutInflater)getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
 
@@ -504,7 +538,7 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
                                     public void onClick(View view) {
 
                                         Intent i = new Intent(getActivity() , WebView.class);
-                                        i.putExtra("url" , "http://www.axisrooms.com/beV2/home1.html?bookingEngineId=1792");
+                                        i.putExtra("url" , "https://www.yourreservation.net/tb3/index.cfm?bf=HABOMELI&arrivaldate=undefined-undefined-&departuredate=undefined-undefined-&adults=1&children=0&plprun=1&_=1475668637295");
                                         getActivity().startActivity(i);
 
                                     }
@@ -521,7 +555,7 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
 
                             }
                             else
-                            {
+                            {moreoffer.setVisibility(View.VISIBLE);
                                 ImageLoader imageLoader = ImageLoader.getInstance();
                                 LayoutInflater inflater1 = (LayoutInflater)getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
 
@@ -537,7 +571,7 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
                                     public void onClick(View view) {
 
                                         Intent i = new Intent(getActivity() , WebView.class);
-                                        i.putExtra("url" , "http://www.axisrooms.com/beV2/home1.html?bookingEngineId=1792");
+                                        i.putExtra("url" , "https://www.yourreservation.net/tb3/index.cfm?bf=HABOMELI&arrivaldate=undefined-undefined-&departuredate=undefined-undefined-&adults=1&children=0&plprun=1&_=1475668637295");
                                         getActivity().startActivity(i);
 
                                     }
