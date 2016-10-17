@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Room Facilities"
+            android:padding="28dp"
+            android:id="@+id/asiana_facilities_title"
+            android:textColor="@color/colorAccent"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#f5f5f5"
+            >
+
+            <ImageView
+                android:layout_width="?attr/listPreferredItemHeight"
+                android:layout_height="?attr/listPreferredItemHeight"
+                android:src="@drawable/homefacilitiesicontv"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Flat Screen TV with Satellite Channels"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#f5f5f5"
+            >
+
+            <ImageView
+                android:layout_width="?attr/listPreferredItemHeight"
+                android:layout_height="?attr/listPreferredItemHeight"
+                android:src="@drawable/homefacilitiesiconminibar"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Mini Bar"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

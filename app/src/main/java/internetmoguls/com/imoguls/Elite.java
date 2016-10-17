@@ -497,6 +497,18 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
                                 ImageView banner = (ImageView)view.findViewById(R.id.fnb_offer_image);
                                 TextView title = (TextView)view.findViewById(R.id.fnb_offer_name);
                                 TextView desc = (TextView)view.findViewById(R.id.fnb_offer_desc);
+                                Button book = (Button)view.findViewById(R.id.fnb_offer_button);
+
+                                book.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        Intent i = new Intent(getActivity() , WebView.class);
+                                        i.putExtra("url" , "http://www.axisrooms.com/beV2/home1.html?bookingEngineId=1792");
+                                        getActivity().startActivity(i);
+
+                                    }
+                                });
 
                                 imageLoader.displayImage(response.body().getPosts().get(i).getPost().getImage() , banner);
 
@@ -518,6 +530,18 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
                                 ImageView banner = (ImageView)view.findViewById(R.id.fnb_offer_image);
                                 TextView title = (TextView)view.findViewById(R.id.fnb_offer_name);
                                 TextView desc = (TextView)view.findViewById(R.id.fnb_offer_desc);
+                                Button book = (Button)view.findViewById(R.id.fnb_offer_button);
+
+                                book.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        Intent i = new Intent(getActivity() , WebView.class);
+                                        i.putExtra("url" , "http://www.axisrooms.com/beV2/home1.html?bookingEngineId=1792");
+                                        getActivity().startActivity(i);
+
+                                    }
+                                });
 
                                 imageLoader.displayImage(response.body().getPosts().get(i).getPost().getImage() , banner);
 

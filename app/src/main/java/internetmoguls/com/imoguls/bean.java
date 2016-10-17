@@ -3,6 +3,9 @@ package internetmoguls.com.imoguls;
 import android.app.Application;
 import android.content.Context;
 
+
+
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -20,6 +23,7 @@ public class bean extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
 
 
 

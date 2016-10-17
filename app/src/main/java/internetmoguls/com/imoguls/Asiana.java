@@ -120,12 +120,14 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
         View av2 = inflater.inflate(R.layout.tab_about, null);
         View av3 = inflater.inflate(R.layout.tab_about, null);
         View av4 = inflater.inflate(R.layout.tab_about, null);
+        View av5 = inflater.inflate(R.layout.tab_about, null);
 
         TextView tabtext = (TextView) av.findViewById(R.id.tab_text);
         TextView tabtext1 = (TextView) av1.findViewById(R.id.tab_text);
         TextView tabtext2 = (TextView) av2.findViewById(R.id.tab_text);
         TextView tabtext3 = (TextView) av3.findViewById(R.id.tab_text);
         TextView tabtext4 = (TextView) av4.findViewById(R.id.tab_text);
+        TextView tabtext5 = (TextView) av5.findViewById(R.id.tab_text);
 
         Display display = getWindowManager().getDefaultDisplay();
 
@@ -153,6 +155,10 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
         tabtext4.setMaxWidth(size.x / 3);
         tabtext4.setText("Contact us");
 
+        tabtext5.setMinWidth(size.x / 3);
+        tabtext5.setMaxWidth(size.x / 3);
+        tabtext5.setText("Facilities");
+
 //        tabs.addTab(tabs.newTab().setCustomView(av));
 
         //      tabs.addTab(tabs.newTab().setText("ROOMS"));
@@ -164,7 +170,7 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
         tabs.setTabGravity(TabLayout.GRAVITY_CENTER);
 
 
-        FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager(), 5);
+        FragStatePagerAdapter adapter = new FragStatePagerAdapter(getSupportFragmentManager(), 6);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
         pager.setAdapter(adapter);
@@ -174,8 +180,10 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
         tabs.getTabAt(0).setCustomView(av);
         tabs.getTabAt(1).setCustomView(av1);
         tabs.getTabAt(2).setCustomView(av2);
-        tabs.getTabAt(3).setCustomView(av3);
-        tabs.getTabAt(4).setCustomView(av4);
+        tabs.getTabAt(3).setCustomView(av5);
+        tabs.getTabAt(4).setCustomView(av3);
+        tabs.getTabAt(5).setCustomView(av4);
+
 
 
         tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -270,8 +278,10 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
                 case 2:
                     return new fnb();
                 case 3:
-                    return new meetings();
+                    return new facilities();
                 case 4:
+                    return new meetings();
+                case 5:
                     return new contact();
 
             }
@@ -288,6 +298,24 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
 
 
     }
+
+
+    public static class facilities extends Fragment{
+
+        @Nullable
+        @Override
+        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.asiana_facilities , container , false);
+
+            TextView title = (TextView)view.findViewById(R.id.asiana_facilities_title);
+
+            title.setTypeface(tf2);
+            title.setTextSize(30);
+
+            return view;
+        }
+    }
+
 
 
     public static class contact extends Fragment {
@@ -510,6 +538,19 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
                                 TextView title = (TextView)view.findViewById(R.id.fnb_offer_name);
                                 TextView desc = (TextView)view.findViewById(R.id.fnb_offer_desc);
 
+                                Button book = (Button)view.findViewById(R.id.fnb_offer_button);
+
+                                book.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        Intent i = new Intent(getActivity() , WebView.class);
+                                        i.putExtra("url" , "http://www.axisrooms.com/beV2/home1.html?bookingEngineId=1792");
+                                        getActivity().startActivity(i);
+
+                                    }
+                                });
+
                                 imageLoader.displayImage(response.body().getPosts().get(i).getPost().getImage() , banner);
 
                                 title.setText(response.body().getPosts().get(i).getPost().getOfferName());
@@ -530,6 +571,18 @@ public class Asiana extends AppCompatActivity implements NavigationView.OnNaviga
                                 ImageView banner = (ImageView)view.findViewById(R.id.fnb_offer_image);
                                 TextView title = (TextView)view.findViewById(R.id.fnb_offer_name);
                                 TextView desc = (TextView)view.findViewById(R.id.fnb_offer_desc);
+                                Button book = (Button)view.findViewById(R.id.fnb_offer_button);
+
+                                book.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        Intent i = new Intent(getActivity() , WebView.class);
+                                        i.putExtra("url" , "http://www.axisrooms.com/beV2/home1.html?bookingEngineId=1792");
+                                        getActivity().startActivity(i);
+
+                                    }
+                                });
 
                                 imageLoader.displayImage(response.body().getPosts().get(i).getPost().getImage() , banner);
 

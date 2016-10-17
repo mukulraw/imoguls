@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "600611919073",
+    "firebase_url": "https://imoguls-c6a88.firebaseio.com",
+    "project_id": "imoguls-c6a88",
+    "storage_bucket": "imoguls-c6a88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600611919073:android:30c63bbe882a8efd",
+        "android_client_info": {
+          "package_name": "internetmoguls.com.imoguls"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600611919073-jhp89bopc2mc7b4vct3eum017ulia5oq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "internetmoguls.com.imoguls",
+            "certificate_hash": "3BC6B2CEC6AFA90A9DC8813D6698F4D2F440311D"
+          }
+        },
+        {
+          "client_id": "600611919073-5e84o7v2jemc32c8nf44gs9rs1an2m2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0hsGDoZkLwtk3Vmzrlj4p3X0oJygdG0I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600611919073-5e84o7v2jemc32c8nf44gs9rs1an2m2u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
