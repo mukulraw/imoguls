@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<detailsBean> call, Response<detailsBean> response) {
 
                 b.username = response.body().getName();
+                b.email = response.body().getEmail();
 
                 asiana.setVisibility(View.VISIBLE);
                 continental.setVisibility(View.VISIBLE);
@@ -112,7 +113,8 @@ public class MainActivity extends AppCompatActivity {
         asiana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getBaseContext() , Asiana.class);
+                Intent i = new Intent(getBaseContext() , DefaultPage.class);
+                i.putExtra("form" , "1");
                 startActivity(i);
             }
         });
@@ -121,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getBaseContext() , Elite.class);
+                Intent i = new Intent(getBaseContext() , DefaultPage.class);
+                i.putExtra("form" , "3");
                 startActivity(i);
 
             }
@@ -131,7 +134,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getBaseContext() , Continental.class);
+                Intent i = new Intent(getBaseContext() , DefaultPage.class);
+                i.putExtra("form" , "2");
                 startActivity(i);
 
             }

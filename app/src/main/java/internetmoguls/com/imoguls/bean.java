@@ -19,6 +19,7 @@ public class bean extends MultiDexApplication {
 
     String userId = "";
     String username = "";
+    String email = "";
 
 
     @Override
