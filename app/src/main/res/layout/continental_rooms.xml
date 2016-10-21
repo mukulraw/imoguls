@@ -38,6 +38,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="Superior Room"
                     android:textColor="@color/colorAccent"
+                    android:gravity="center_horizontal"
                     android:id="@+id/cont_room1_title"
                     android:textSize="22sp"
                     android:padding="18dp"
@@ -102,6 +103,7 @@
                     android:textColor="@color/colorAccent"
                     android:textSize="24sp"
                     android:id="@+id/cont_room2_title"
+                    android:gravity="center_horizontal"
                     android:padding="18dp"
 
                     android:textStyle="italic"
@@ -167,7 +169,7 @@
                     android:textColor="@color/colorAccent"
                     android:id="@+id/cont_room3_title"
                     android:padding="18dp"
-
+                    android:gravity="center_horizontal"
                     android:textStyle="italic"
                     android:typeface="serif"
                     />
@@ -229,7 +231,7 @@
                     android:textColor="@color/colorAccent"
                     android:id="@+id/cont_room4_title"
                     android:padding="18dp"
-
+                    android:gravity="center_horizontal"
                     android:textStyle="italic"
                     android:typeface="serif"
                     />

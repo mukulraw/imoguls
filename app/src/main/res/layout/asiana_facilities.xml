@@ -16,6 +16,7 @@
             android:text="Hotel facilities &amp; Services include"
             android:padding="28dp"
             android:id="@+id/asiana_facilities_title"
+
             android:textColor="@color/colorAccent"
             />
 
