@@ -35,9 +35,21 @@ public class Post_ {
     @SerializedName("9")
     @Expose
     private String _9;
+    @SerializedName("10")
+    @Expose
+    private String _10;
+    @SerializedName("11")
+    @Expose
+    private String _11;
     @SerializedName("voucher_id")
     @Expose
     private String voucherId;
+    @SerializedName("title")
+    @Expose
+    private String title;
+    @SerializedName("hotel_cat")
+    @Expose
+    private String hotelCat;
     @SerializedName("voucher_code")
     @Expose
     private String voucherCode;
@@ -243,6 +255,42 @@ public class Post_ {
     /**
      *
      * @return
+     * The _10
+     */
+    public String get10() {
+        return _10;
+    }
+
+    /**
+     *
+     * @param _10
+     * The 10
+     */
+    public void set10(String _10) {
+        this._10 = _10;
+    }
+
+    /**
+     *
+     * @return
+     * The _11
+     */
+    public String get11() {
+        return _11;
+    }
+
+    /**
+     *
+     * @param _11
+     * The 11
+     */
+    public void set11(String _11) {
+        this._11 = _11;
+    }
+
+    /**
+     *
+     * @return
      * The voucherId
      */
     public String getVoucherId() {
@@ -256,6 +304,42 @@ public class Post_ {
      */
     public void setVoucherId(String voucherId) {
         this.voucherId = voucherId;
+    }
+
+    /**
+     *
+     * @return
+     * The title
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     *
+     * @param title
+     * The title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     *
+     * @return
+     * The hotelCat
+     */
+    public String getHotelCat() {
+        return hotelCat;
+    }
+
+    /**
+     *
+     * @param hotelCat
+     * The hotel_cat
+     */
+    public void setHotelCat(String hotelCat) {
+        this.hotelCat = hotelCat;
     }
 
     /**

@@ -73,7 +73,7 @@ public class SplashActivity extends AppCompatActivity {
                 public void onResponse(Call<RegisterBean> call, Response<RegisterBean> response) {
 
 
-                    if (response.body().getStatus().equals("4"))
+                    if (response.body().getStatus().equals("1"))
                     {
 
 
@@ -89,7 +89,7 @@ public class SplashActivity extends AppCompatActivity {
                         startActivity(i);
                         finish();
                     }
-                    if (response.body().getStatus().equals("2"))
+                    if (response.body().getStatus().equals("4"))
                     {
                         bean b = (bean)getApplicationContext();
 
@@ -100,7 +100,7 @@ public class SplashActivity extends AppCompatActivity {
 
                     }
 
-                    if (response.body().getStatus().equals("1") || response.body().getStatus().equals("3"))
+                    if (response.body().getStatus().equals("2") || response.body().getStatus().equals("3"))
                     {
                         Toast.makeText(getApplicationContext() , "Invalid Email or password" , Toast.LENGTH_SHORT).show();
                     }

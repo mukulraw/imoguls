@@ -49,5 +49,9 @@ public interface Register {
     @POST("immogules/user_voucher.php")
     Call<promoBean> getPromo(@Part("id") String id);
 
+    @Multipart
+    @POST("immogules/notify.php")
+    Call<promoBean> getPromo2(@Part("id") String id , @Part("provider") String provider);
+
 
 }

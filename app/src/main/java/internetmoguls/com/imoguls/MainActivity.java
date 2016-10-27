@@ -33,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+        Intent intent = new Intent(this , NotificationServiceClass.class);
+        startService(intent);
+
+
+
+
         tf = Typeface.createFromAsset(getAssets() , "roboto.ttf");
         tf2 = Typeface.createFromAsset(getAssets() , "vladmir.TTF");
 
