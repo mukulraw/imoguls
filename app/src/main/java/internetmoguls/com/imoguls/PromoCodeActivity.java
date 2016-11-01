@@ -108,7 +108,7 @@ public class PromoCodeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Dialog dialog = new Dialog(PromoCodeActivity.this);
+                final Dialog dialog = new Dialog(PromoCodeActivity.this);
                 dialog.setCancelable(true);
                 dialog.setContentView(R.layout.dialog_filter);
                 dialog.show();
@@ -267,7 +267,12 @@ public class PromoCodeActivity extends AppCompatActivity {
 
                         }
 
+                        dialog.dismiss();
+
                     }
+
+
+
                 });
 
 
