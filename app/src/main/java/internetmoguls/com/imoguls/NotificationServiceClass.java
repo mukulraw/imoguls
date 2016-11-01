@@ -11,6 +11,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.util.Log;
 
 
 import java.util.List;
@@ -42,6 +43,8 @@ public class NotificationServiceClass extends Service {
 
 
 
+
+
                     if (cd.isConnectingToInternet())
                     {
                         getCodes();
@@ -59,6 +62,9 @@ public class NotificationServiceClass extends Service {
 
             }
         }, 0, 1000*60);
+
+
+
     }
 
 
@@ -79,16 +85,19 @@ public class NotificationServiceClass extends Service {
 
         Register cr = retrofit.create(Register.class);
 
-        Call<promoBean> call = cr.getPromo2(b.userId , "android");
+        Call<promoBean> call = cr.getPromo2(b.userId );
 
         call.enqueue(new Callback<promoBean>() {
             @Override
             public void onResponse(Call<promoBean> call, Response<promoBean> response) {
 
 
+                Log.d("asdasdasd" , "started but null");
+
                 if (response.body().getPosts()!=null)
                 {
 
+                    Log.d("asdasdasd" , "started but not null");
                     int size = response.body().getPosts().size();
 
                     if (size == 1)
@@ -186,13 +195,23 @@ public class NotificationServiceClass extends Service {
     }
 
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+
+        cd = new ConnectionDetector(getApplicationContext());
+
+        Log.d("asdasdasdasd" , "service started");
+
+        doSomethingRepeatedly();
+        return Service.START_NOT_STICKY;
+    }
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
 
-        cd = new ConnectionDetector(getApplicationContext());
 
-        doSomethingRepeatedly();
         return null;
     }
 }

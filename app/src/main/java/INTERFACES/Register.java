@@ -51,7 +51,7 @@ public interface Register {
 
     @Multipart
     @POST("immogules/notify.php")
-    Call<promoBean> getPromo2(@Part("id") String id , @Part("provider") String provider);
+    Call<promoBean> getPromo2(@Part("id") String id);
 
 
 }
