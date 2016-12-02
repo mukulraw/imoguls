@@ -59,7 +59,7 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
     MyViewPager pager;
     SharedPreferences pref;
     static SharedPreferences.Editor edit;
-    DrawerLayout drawer;
+    //DrawerLayout drawer;
 
     static Typeface tf;
     static Typeface tf2;
@@ -90,12 +90,8 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
 
-        drawer = (DrawerLayout)findViewById(R.id.activity_elite);
+        //drawer = (DrawerLayout)findViewById(R.id.activity_elite);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
 
 
         tabs = (TabLayout)findViewById(R.id.tabs_asiana);
@@ -305,13 +301,7 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.elite_facility , container , false);
 
-            TextView title = (TextView)view.findViewById(R.id.asiana_facilities_title);
-            TextView title2 = (TextView)view.findViewById(R.id.asiana_facilities_title2);
 
-            title.setTypeface(tf2);
-            title2.setTypeface(tf2);
-            title.setTextSize(30);
-            title2.setTextSize(30);
 
             return view;
         }
@@ -412,54 +402,20 @@ public class Elite extends AppCompatActivity  implements NavigationView.OnNaviga
 
     public static class rooms extends Fragment{
 
-        Button b1 , b2 ;
+
 
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.elite_rooms , container , false);
 
-            b1 = (Button)v.findViewById(R.id.asiana_room_1);
-            b2 = (Button)v.findViewById(R.id.asiana_room_2);
-
-
-            TextView tit1 = (TextView)v.findViewById(R.id.elite_room1_title);
-            TextView tit2 = (TextView)v.findViewById(R.id.elite_room2_title);
-
-            tit1.setTypeface(tf2);
-            tit2.setTypeface(tf2);
-
-            tit1.setTextSize(30);
-            tit2.setTextSize(30);
-
-
-            TextView con1 = (TextView)v.findViewById(R.id.elite_room1_con);
-            TextView con2 = (TextView)v.findViewById(R.id.elite_room2_con);
-
-            con1.setTypeface(tf);
-            con2.setTypeface(tf);
 
 
 
-            b1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
 
-                    Intent i = new Intent(getActivity() , WebView.class);
-                    i.putExtra("url" , "https://www.yourreservation.net/tb3/index.cfm?bf=HABOMELI&arrivaldate=2016-10-03&departuredate=2016-10-04&adults=1&children=0&plprun=1&_=1462766405231");
-                    getActivity().startActivity(i);
 
-                }
-            });
 
-            b2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(getActivity() , WebView.class);
-                    i.putExtra("url" , "https://www.yourreservation.net/tb3/index.cfm?bf=HABOMELI&arrivaldate=2016-10-03&departuredate=2016-10-04&adults=1&children=0&plprun=1&_=1462766405231");
-                    getActivity().startActivity(i);
-                }
-            });
+
 
 
             return v;

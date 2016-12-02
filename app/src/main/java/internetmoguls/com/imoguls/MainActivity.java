@@ -5,14 +5,20 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import INTERFACES.Register;
 import POJO.detailsBean;
+import propertiesPOJO.Post;
+import propertiesPOJO.propertyBean;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,11 +28,18 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    CardView asiana , elite , continental;
+
 
 
     static Typeface tf;
     static Typeface tf2;
+    RecyclerView grid;
+
+    List<Post> list;
+
+    GridLayoutManager manager;
+
+    PropertyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,46 +49,31 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = new Intent(this , NotificationServiceClass.class);
-        startService(intent);
+        //startService(intent);
+
+        list = new ArrayList<>();
+        manager = new GridLayoutManager(this , 1);
+
+        grid = (RecyclerView)findViewById(R.id.property_list);
 
 
-
+        adapter = new PropertyAdapter(this , list);
 
         tf = Typeface.createFromAsset(getAssets() , "roboto.ttf");
         tf2 = Typeface.createFromAsset(getAssets() , "vladmir.TTF");
 
 
-        TextView tit1 = (TextView)findViewById(R.id.asiana_title);
-        TextView tit2 = (TextView)findViewById(R.id.cont_title);
-        TextView tit3 = (TextView)findViewById(R.id.elite_title);
-
-        tit1.setTypeface(tf2);
-        tit2.setTypeface(tf2);
-        tit3.setTypeface(tf2);
-
-        tit1.setTextSize(30);
-        tit2.setTextSize(30);
-        tit3.setTextSize(30);
 
 
-        TextView con1 = (TextView)findViewById(R.id.asiana_content);
-        TextView con2 = (TextView)findViewById(R.id.cont_con);
-        TextView con3 = (TextView)findViewById(R.id.elite_con);
+        grid.setAdapter(adapter);
+
+        grid.setLayoutManager(manager);
 
 
-        con1.setTypeface(tf);
-        con2.setTypeface(tf);
-        con3.setTypeface(tf);
 
 
-        asiana = (CardView)findViewById(R.id.asiana);
-        elite = (CardView)findViewById(R.id.elite);
-        continental = (CardView)findViewById(R.id.continental);
 
 
-        asiana.setVisibility(View.GONE);
-        elite.setVisibility(View.GONE);
-        continental.setVisibility(View.GONE);
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -97,9 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 b.username = response.body().getName();
                 b.email = response.body().getEmail();
 
-                asiana.setVisibility(View.VISIBLE);
-                continental.setVisibility(View.VISIBLE);
-                elite.setVisibility(View.VISIBLE);
+
 
 
             }
@@ -114,9 +110,29 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        Call<propertyBean> call2 = cr.getProperties();
+
+        call2.enqueue(new Callback<propertyBean>() {
+            @Override
+            public void onResponse(Call<propertyBean> call, Response<propertyBean> response) {
+
+
+                adapter.setGridData(response.body().getPosts());
 
 
 
+            }
+
+            @Override
+            public void onFailure(Call<propertyBean> call, Throwable t) {
+
+            }
+        });
+
+
+
+
+/*
 
         asiana.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+*/
 
 
 

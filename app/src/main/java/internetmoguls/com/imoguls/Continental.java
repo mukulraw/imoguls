@@ -57,7 +57,7 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
 
     TabLayout tabs;
     MyViewPager pager;
-    DrawerLayout drawer;
+    //DrawerLayout drawer;
     SharedPreferences pref;
     static SharedPreferences.Editor edit;
     static Typeface tf;
@@ -88,12 +88,8 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
 
-        drawer = (DrawerLayout)findViewById(R.id.activity_continental);
+        //drawer = (DrawerLayout)findViewById(R.id.activity_continental);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
 
 
         tabs = (TabLayout)findViewById(R.id.tabs_asiana);
@@ -303,13 +299,7 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.continental_facilities , container , false);
 
-            TextView title = (TextView)view.findViewById(R.id.asiana_facilities_title);
-            TextView title2 = (TextView)view.findViewById(R.id.asiana_facilities_title2);
 
-            title.setTypeface(tf2);
-            title2.setTypeface(tf2);
-            title.setTextSize(30);
-            title2.setTextSize(30);
 
             return view;
         }
@@ -415,7 +405,7 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
 
     public static class rooms extends Fragment{
 
-        Button b1 , b2 , b3 , b4;
+
 
         @Nullable
         @Override
@@ -423,75 +413,13 @@ public class Continental extends AppCompatActivity  implements NavigationView.On
             View v = inflater.inflate(R.layout.continental_rooms , container , false);
 
 
-            TextView tit1 = (TextView)v.findViewById(R.id.cont_room1_title);
-            TextView tit2 = (TextView)v.findViewById(R.id.cont_room2_title);
-            TextView tit3 = (TextView)v.findViewById(R.id.cont_room3_title);
-            TextView tit4 = (TextView)v.findViewById(R.id.cont_room4_title);
-
-            tit1.setTypeface(tf2);
-            tit2.setTypeface(tf2);
-            tit3.setTypeface(tf2);
-            tit4.setTypeface(tf2);
 
 
-            tit1.setTextSize(30);
-            tit2.setTextSize(30);
-            tit3.setTextSize(30);
-            tit4.setTextSize(30);
-
-            TextView con1 = (TextView)v.findViewById(R.id.cont_room1_con);
-            TextView con2 = (TextView)v.findViewById(R.id.cont_room2_con);
-            TextView con3 = (TextView)v.findViewById(R.id.cont_room3_con);
-            TextView con4 = (TextView)v.findViewById(R.id.cont_room4_con);
-
-            con1.setTypeface(tf);
-            con2.setTypeface(tf);
-            con3.setTypeface(tf);
-            con4.setTypeface(tf);
 
 
-            b1 = (Button)v.findViewById(R.id.asiana_room_1);
-            b2 = (Button)v.findViewById(R.id.asiana_room_2);
-            b3 = (Button)v.findViewById(R.id.asiana_room_3);
-            b4 = (Button)v.findViewById(R.id.asiana_room_4);
 
-            b1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
 
-                    Intent i = new Intent(getActivity() , WebView.class);
-                    i.putExtra("url" , "https://www.yourreservation.net/tb3/index.cfm?bf=HABOMCON&arrivaldate=10/04/2016&departuredate=10/05/2016&adult=1%20Adult&child=0%20Child&plprun=1&_=1460592873441");
-                    getActivity().startActivity(i);
 
-                }
-            });
-
-            b2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(getActivity() , WebView.class);
-                    i.putExtra("url" , "https://www.yourreservation.net/tb3/index.cfm?bf=HABOMCON&arrivaldate=10/04/2016&departuredate=10/05/2016&adult=1%20Adult&child=0%20Child&plprun=1&_=1460592873441");
-                    getActivity().startActivity(i);
-                }
-            });
-
-            b3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(getActivity() , WebView.class);
-                    i.putExtra("url" , "https://www.yourreservation.net/tb3/index.cfm?bf=HABOMCON&arrivaldate=10/04/2016&departuredate=10/05/2016&adult=1%20Adult&child=0%20Child&plprun=1&_=1460592873441");
-                    getActivity().startActivity(i);
-                }
-            });
-
-            b4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(getActivity() , WebView.class);
-                    i.putExtra("url" , "https://www.yourreservation.net/tb3/index.cfm?bf=HABOMCON&arrivaldate=10/04/2016&departuredate=10/05/2016&adult=1%20Adult&child=0%20Child&plprun=1&_=1460592873441");
-                    getActivity().startActivity(i);
-                }
-            });
 
 
             return v;

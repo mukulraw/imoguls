@@ -10,10 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:id="@+id/contact_asiana_title"
+        android:id="@+id/contact_title"
         android:layout_gravity="center_horizontal"
         android:padding="18dp"
-        android:text="Contact us"
+
         android:textColor="@color/colorAccent"
         />
 
@@ -21,10 +21,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:id="@+id/contact_phone"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:text="+91 44 674 11 000"
+
         android:textSize="18sp"
         android:padding="10dp"
         android:autoLink="phone"
@@ -32,16 +32,29 @@
 
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/contact_email"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:padding="5dp"
+
+        />
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/contact_address"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:padding="5dp"
-        android:text="1/238, Old Mahabalipuram Road (OMR),
- Semmencherry,
- Chennai - 600 119, Tamilnadu, INDIA."
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="18dp"
+        android:paddingStart="18dp"
+
         />
 
 

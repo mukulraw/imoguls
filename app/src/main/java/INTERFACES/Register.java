@@ -5,7 +5,12 @@ import POJO.RegisterBean;
 import POJO.detailsBean;
 import POJO.fnbBean;
 import PROMO_POJO.promoBean;
+import aboutPOJO.aboutBean;
+import contactPOJO.contactBean;
+import meetingsPOJO.meetingBean;
+import propertiesPOJO.propertyBean;
 import retrofit2.Call;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -52,6 +57,26 @@ public interface Register {
     @Multipart
     @POST("immogules/notify.php")
     Call<promoBean> getPromo2(@Part("id") String id);
+
+
+
+    @GET("immogules/hotel_detail.php")
+    Call<propertyBean> getProperties();
+
+
+    @Multipart
+    @POST("immogules/hotel_about.php")
+    Call<aboutBean> getAbout(@Part("hotel_id") String id);
+
+
+    @Multipart
+    @POST("immogules/hotel_meeting.php")
+    Call<meetingBean> getMeetings(@Part("hotel_id") String id);
+
+    @Multipart
+    @POST("immogules/hotel_contact.php")
+    Call<contactBean> getContact(@Part("hotel_id") String id);
+
 
 
 }

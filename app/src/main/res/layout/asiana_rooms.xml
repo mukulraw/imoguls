@@ -1,142 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app_card="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#f5f5f5"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            app_card:cardUseCompatPadding="true"
-            android:layout_marginTop="5dp"
-            android:background="#f5f5f5"
-            android:layout_marginBottom="5dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:src="@drawable/asianroom1"
-                    android:scaleType="centerCrop"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Superior &amp; Deluxe Room"
-                    android:textSize="22sp"
-                    android:gravity="center"
-                    android:textColor="@color/colorAccent"
-                    android:padding="18dp"
-                    android:id="@+id/asiana_room1_title"
-                    android:textStyle="italic"
-                    android:typeface="serif"
-                    />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/rooms_title"
+        />
 
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/asiana_room1_con"
-                    android:padding="18dp"
-                    android:gravity="center_horizontal"
-                    android:text="@string/asiana_room1"
-                    />
-
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:id="@+id/asiana_room_1"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorAccent"
-                    android:background="@drawable/round_white"
-                    android:text="BOOK"
-                    />
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            app_card:cardUseCompatPadding="true"
-            android:layout_marginTop="5dp"
-            android:background="#f5f5f5"
-            android:layout_marginBottom="5dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:src="@drawable/asianaroom2"
-                    android:scaleType="centerCrop"
-                    />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Studio Room"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="24sp"
-                        android:id="@+id/asiana_room2_title"
-                        android:gravity="center_horizontal"
-                        android:padding="18dp"
-                        android:textStyle="italic"
-                        android:typeface="serif"
-                        />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/asiana_room2_con"
-                    android:gravity="center_horizontal"
-                    android:padding="18dp"
-                    android:text="@string/asiana_fnb_1"
-                    />
-
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:id="@+id/asiana_room_2"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorAccent"
-                    android:background="@drawable/round_white"
-                    android:text="BOOK"
-                    />
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-
-
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>
