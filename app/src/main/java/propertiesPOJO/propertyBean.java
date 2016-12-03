@@ -8,26 +8,26 @@ import java.util.List;
 
 public class propertyBean {
 
-    @SerializedName("posts")
+    @SerializedName("hotel_detail")
     @Expose
-    private List<Post> posts = new ArrayList<Post>();
+    private List<HotelDetail> hotelDetail = new ArrayList<HotelDetail>();
 
     /**
      *
      * @return
-     * The posts
+     * The hotelDetail
      */
-    public List<Post> getPosts() {
-        return posts;
+    public List<HotelDetail> getHotelDetail() {
+        return hotelDetail;
     }
 
     /**
      *
-     * @param posts
-     * The posts
+     * @param hotelDetail
+     * The hotel_detail
      */
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
+    public void setHotelDetail(List<HotelDetail> hotelDetail) {
+        this.hotelDetail = hotelDetail;
     }
 
 }

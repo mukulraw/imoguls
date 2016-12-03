@@ -4,20 +4,15 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import INTERFACES.Register;
 import POJO.detailsBean;
-import propertiesPOJO.Post;
+import propertiesPOJO.HotelDetail;
 import propertiesPOJO.propertyBean;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     static Typeface tf2;
     RecyclerView grid;
 
-    List<Post> list;
+    List<HotelDetail> list;
 
     GridLayoutManager manager;
 
@@ -117,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<propertyBean> call, Response<propertyBean> response) {
 
 
-                adapter.setGridData(response.body().getPosts());
+                adapter.setGridData(response.body().getHotelDetail());
 
 
 

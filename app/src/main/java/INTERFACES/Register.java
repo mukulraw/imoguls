@@ -7,6 +7,7 @@ import POJO.fnbBean;
 import PROMO_POJO.promoBean;
 import aboutPOJO.aboutBean;
 import contactPOJO.contactBean;
+import galleryPOJO.galleryBean;
 import meetingsPOJO.meetingBean;
 import propertiesPOJO.propertyBean;
 import retrofit2.Call;
@@ -77,6 +78,8 @@ public interface Register {
     @POST("immogules/hotel_contact.php")
     Call<contactBean> getContact(@Part("hotel_id") String id);
 
-
+    @Multipart
+    @POST("immogules/hotel_gallery.php")
+    Call<galleryBean> getGallery(@Part("hotel_id") String id);
 
 }

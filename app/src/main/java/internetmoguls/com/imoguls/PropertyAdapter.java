@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,24 +15,24 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-import propertiesPOJO.Post;
+import propertiesPOJO.HotelDetail;
 
 
 class PropertyAdapter  extends RecyclerView.Adapter<PropertyAdapter.ViewHolder>{
 
-    List<Post> list = new ArrayList<>();
+    List<HotelDetail> list = new ArrayList<>();
     Context context;
 
 
 
-    public PropertyAdapter(Context context , List<Post> list)
+    public PropertyAdapter(Context context , List<HotelDetail> list)
     {
         this.context = context;
         this.list = list;
     }
 
 
-    public void setGridData(List<Post> list)
+    public void setGridData(List<HotelDetail> list)
     {
         this.list = list;
         notifyDataSetChanged();
@@ -52,13 +51,13 @@ class PropertyAdapter  extends RecyclerView.Adapter<PropertyAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        Post item = list.get(position);
+        HotelDetail item = list.get(position);
 
         ImageLoader loader = ImageLoader.getInstance();
 
-        loader.displayImage(item.getPost().getHotelImage() , holder.propertyImage);
-        holder.propertyName.setText(item.getPost().getHotelName());
-        holder.propertyDesc.setText(Html.fromHtml(item.getPost().getHotelDescription()));
+        loader.displayImage(item.getHotelImage() , holder.propertyImage);
+        holder.propertyName.setText(item.getHotelName());
+        holder.propertyDesc.setText(Html.fromHtml(item.getHotelDescription()));
 
     }
 
@@ -87,8 +86,8 @@ class PropertyAdapter  extends RecyclerView.Adapter<PropertyAdapter.ViewHolder>{
                 public void onClick(View view) {
 
                     Intent i = new Intent(context , DefaultPage.class);
-                    i.putExtra("form" , list.get(getAdapterPosition()).getPost().getHotelId());
-                    i.putExtra("name" , list.get(getAdapterPosition()).getPost().getHotelName());
+                    i.putExtra("form" , list.get(getAdapterPosition()).getHotelId());
+                    i.putExtra("name" , list.get(getAdapterPosition()).getHotelName());
                     context.startActivity(i);
 
                 }
