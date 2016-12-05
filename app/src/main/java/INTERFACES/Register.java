@@ -15,6 +15,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import roomsPOJO.roomsBean;
 
 public interface Register {
 
@@ -81,5 +82,10 @@ public interface Register {
     @Multipart
     @POST("immogules/hotel_gallery.php")
     Call<galleryBean> getGallery(@Part("hotel_id") String id);
+
+
+    @Multipart
+    @POST("immogules/hotel_room.php")
+    Call<roomsBean> getRooms(@Part("hotel_id") String id);
 
 }

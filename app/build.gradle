@@ -34,11 +34,13 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
+    compile 'com.github.bluejamesbond:textjustify-android:2.1.0'
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'org.sufficientlysecure:html-textview:3.0'
     compile 'com.google.firebase:firebase-messaging:9.6.1'
     compile 'com.google.code.gson:gson:2.6.1'
     compile 'it.neokree:MaterialTabs:0.11'
