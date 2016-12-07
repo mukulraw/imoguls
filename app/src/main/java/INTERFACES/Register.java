@@ -10,6 +10,7 @@ import contactPOJO.contactBean;
 import galleryPOJO.galleryBean;
 import meetingsPOJO.meetingBean;
 import propertiesPOJO.propertyBean;
+import restaurantPOJO.restaurantBean;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
@@ -87,5 +88,11 @@ public interface Register {
     @Multipart
     @POST("immogules/hotel_room.php")
     Call<roomsBean> getRooms(@Part("hotel_id") String id);
+
+
+    @Multipart
+    @POST("immogules/hotel_restaurant.php")
+    Call<restaurantBean> getRestaurants(@Part("hotel_id") String id);
+
 
 }
