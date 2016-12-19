@@ -1,12 +1,15 @@
 package INTERFACES;
 
 
+import java.util.List;
+
 import POJO.RegisterBean;
 import POJO.detailsBean;
 import POJO.fnbBean;
 import PROMO_POJO.promoBean;
 import aboutPOJO.aboutBean;
 import contactPOJO.contactBean;
+import facilityPOJO.facilityBean;
 import galleryPOJO.galleryBean;
 import meetingsPOJO.meetingBean;
 import propertiesPOJO.propertyBean;
@@ -94,5 +97,9 @@ public interface Register {
     @POST("immogules/hotel_restaurant.php")
     Call<restaurantBean> getRestaurants(@Part("hotel_id") String id);
 
+
+    @Multipart
+    @POST("immogules/hotel_facility.php")
+    Call<List<facilityBean>> getFacilities(@Part("hotel_id") String id);
 
 }
