@@ -43,7 +43,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-
             android:textColor="#fff"
             android:id="@+id/property_name"
             android:textStyle="italic"
@@ -92,7 +91,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center_horizontal"
-
                 android:id="@+id/property_description"
                 android:textColor="#fff"
                 android:padding="5dp"

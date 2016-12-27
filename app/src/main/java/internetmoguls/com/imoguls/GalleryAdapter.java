@@ -3,6 +3,7 @@ package internetmoguls.com.imoguls;
 import android.content.Context;
 import android.media.Image;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
         loader.displayImage(item.getGalleryImage() , holder.image);
 
         holder.name.setText(item.getGalleryTitle());
-        holder.content.setText(item.getGalleryDescription());
+        holder.content.setText(Html.fromHtml(item.getGalleryDescription()));
 
 
 

@@ -57,7 +57,7 @@ class PropertyAdapter  extends RecyclerView.Adapter<PropertyAdapter.ViewHolder>{
 
         loader.displayImage(item.getHotelImage() , holder.propertyImage);
         holder.propertyName.setText(item.getHotelName());
-        holder.propertyDesc.setText(Html.fromHtml(item.getHotelDescription()));
+        holder.propertyDesc.setText(item.getHotelDescription());
 
     }
 
