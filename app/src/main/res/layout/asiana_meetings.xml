@@ -55,6 +55,8 @@
         android:layout_marginBottom="-1dp"
         android:layout_marginEnd="18dp"
         android:textColorHint="#bdbdbd"
+        android:textIsSelectable="false"
+        android:longClickable="false"
         android:textSize="16sp"
         android:id="@+id/asiana_m_name"
         />
@@ -70,7 +72,8 @@
         android:layout_marginEnd="18dp"
         android:textColorHint="#bdbdbd"
         android:textSize="16sp"
-
+        android:textIsSelectable="false"
+        android:longClickable="false"
         android:id="@+id/asiana_m_email"
         />
     <EditText
@@ -82,6 +85,8 @@
         android:layout_marginStart="18dp"
         android:layout_marginBottom="-1dp"
         android:layout_marginEnd="18dp"
+        android:textIsSelectable="false"
+        android:longClickable="false"
         android:padding="15dp"
         android:textColorHint="#bdbdbd"
         android:textSize="16sp"
@@ -95,6 +100,8 @@
         android:layout_marginStart="18dp"
         android:layout_marginBottom="-1dp"
         android:layout_marginEnd="18dp"
+        android:textIsSelectable="false"
+        android:longClickable="false"
         android:textColorHint="#bdbdbd"
         android:textSize="16sp"
         android:background="@drawable/meeting_background"
@@ -106,7 +113,9 @@
         android:layout_height="wrap_content"
         android:hint="Message*"
         android:layout_marginStart="18dp"
+        android:textIsSelectable="false"
         android:layout_marginBottom="10dp"
+        android:longClickable="false"
         android:layout_marginEnd="18dp"
         android:textColorHint="#bdbdbd"
         android:textSize="16sp"
