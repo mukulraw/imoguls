@@ -12,6 +12,7 @@ import contactPOJO.contactBean;
 import facilityPOJO.facilityBean;
 import galleryPOJO.galleryBean;
 import meetingsPOJO.meetingBean;
+import offerPOJO.offerBean;
 import propertiesPOJO.propertyBean;
 import restaurantPOJO.restaurantBean;
 import retrofit2.Call;
@@ -53,7 +54,7 @@ public interface Register {
 
     @Multipart
     @POST("immogules/offer_data.php")
-    Call<fnbBean> getfnb(@Part("category") String category);
+    Call<offerBean> getfnb(@Part("category") String category);
 
 
     @Multipart

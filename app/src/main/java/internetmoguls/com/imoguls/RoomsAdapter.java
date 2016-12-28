@@ -7,6 +7,8 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.*;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -65,9 +67,12 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder>{
 
         holder.name.setTypeface(tf2);
 
-        holder.desc.setText(Html.fromHtml(item.getRoomDescription()) , null);
+        String htmlText = "<html><body style=\"text-align:justify\"><font size=\"3\" weight=\"300\" face=\"roboto\" color=\"#808080\"> %s </font></body></Html>";
 
-        holder.desc.setTypeface(tf);
+        holder.desc.loadData(String.format(htmlText , item.getRoomDescription()) , "text/html", null);
+        holder.desc.setFocusable(false);
+
+        //holder.desc.setTypeface(tf);
 
 
     }
@@ -82,14 +87,14 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder>{
         ImageView image;
         TextView name;
 
-        TextView desc;
+        android.webkit.WebView desc;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             image = (ImageView)itemView.findViewById(R.id.rooms_image);
             name = (TextView)itemView.findViewById(R.id.rooms_name);
-            desc = (TextView) itemView.findViewById(R.id.rooms_description);
+            desc = (WebView) itemView.findViewById(R.id.rooms_description);
 
         }
     }
