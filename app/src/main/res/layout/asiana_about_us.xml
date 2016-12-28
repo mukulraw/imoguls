@@ -56,9 +56,10 @@
         android:layout_height="wrap_content"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
-        android:paddingBottom="18dp"
+        android:layout_marginBottom="68dp"
         android:id="@+id/about_content"
         android:gravity="center_horizontal"
+
 
         />
 
