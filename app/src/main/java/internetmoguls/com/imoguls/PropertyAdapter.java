@@ -2,6 +2,7 @@ package internetmoguls.com.imoguls;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -51,13 +52,22 @@ class PropertyAdapter  extends RecyclerView.Adapter<PropertyAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
+        Typeface tf = Typeface.createFromAsset(context.getAssets() , "roboto.ttf");
+        Typeface tf2 = Typeface.createFromAsset(context.getAssets() , "vladmir.TTF");
+
+
         HotelDetail item = list.get(position);
 
         ImageLoader loader = ImageLoader.getInstance();
 
         loader.displayImage(item.getHotelImage() , holder.propertyImage);
         holder.propertyName.setText(item.getHotelName());
+
+        holder.propertyName.setTypeface(tf2);
+
         holder.propertyDesc.setText(item.getHotelDescription());
+
+        holder.propertyDesc.setTypeface(tf);
 
     }
 

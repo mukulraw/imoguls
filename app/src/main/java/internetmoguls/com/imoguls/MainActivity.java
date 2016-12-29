@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     static Typeface tf;
     static Typeface tf2;
+
+    TextView title;
+
     RecyclerView grid;
 
     List<HotelDetail> list;
@@ -36,11 +42,18 @@ public class MainActivity extends AppCompatActivity {
 
     PropertyAdapter adapter;
 
+    ProgressBar progress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        title = (TextView)findViewById(R.id.title);
+
+
+        progress = (ProgressBar)findViewById(R.id.progress);
 
 
         Intent intent = new Intent(this , NotificationServiceClass.class);
@@ -58,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         tf2 = Typeface.createFromAsset(getAssets() , "vladmir.TTF");
 
 
+        title.setTypeface(tf2);
 
 
         grid.setAdapter(adapter);
@@ -66,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+        progress.setVisibility(View.VISIBLE);
 
 
 
@@ -115,12 +131,14 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setGridData(response.body().getHotelDetail());
 
 
+                progress.setVisibility(View.GONE);
+
 
             }
 
             @Override
             public void onFailure(Call<propertyBean> call, Throwable t) {
-
+                progress.setVisibility(View.GONE);
             }
         });
 
