@@ -7,8 +7,7 @@
               android:orientation="vertical"
     android:layout_height="match_parent"
     tools:openDrawer="start"
-    android:fitsSystemWindows="true"
-    tools:context="internetmoguls.com.imoguls.Asiana">
+    android:fitsSystemWindows="true">
 
 
 
@@ -73,10 +72,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BOOK"
+        android:minHeight="0dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@drawable/book_background"
         android:id="@+id/book_button"
+        android:textColor="@color/colorAccent"
         />
 
 

@@ -67,7 +67,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder>{
 
         holder.name.setTypeface(tf2);
 
-        String htmlText = "<html><body style=\"text-align:justify\"><font size=\"3\" weight=\"300\" face=\"roboto\" color=\"#808080\"> %s </font></body></Html>";
+        String htmlText = "<html><body style=\"text-align:justify; padding:0 10px;\"><font size=\"3\" weight=\"300\" face=\"roboto\" color=\"#808080\"> %s </font></body></Html>";
 
         holder.desc.loadData(String.format(htmlText , item.getRoomDescription()) , "text/html", null);
         holder.desc.setFocusable(false);

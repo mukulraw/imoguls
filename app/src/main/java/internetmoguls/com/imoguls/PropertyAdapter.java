@@ -88,6 +88,7 @@ class PropertyAdapter  extends RecyclerView.Adapter<PropertyAdapter.ViewHolder>{
                     Intent i = new Intent(context , DefaultPage.class);
                     i.putExtra("form" , list.get(getAdapterPosition()).getHotelId());
                     i.putExtra("name" , list.get(getAdapterPosition()).getHotelName());
+                    i.putExtra("addr" , list.get(getAdapterPosition()).getHotelDescription());
                     context.startActivity(i);
 
                 }

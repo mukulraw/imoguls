@@ -11,6 +11,7 @@ import aboutPOJO.aboutBean;
 import contactPOJO.contactBean;
 import facilityPOJO.facilityBean;
 import galleryPOJO.galleryBean;
+import internetmoguls.com.imoguls.bookingEngineBean;
 import meetingsPOJO.meetingBean;
 import offerPOJO.offerBean;
 import propertiesPOJO.propertyBean;
@@ -102,5 +103,10 @@ public interface Register {
     @Multipart
     @POST("immogules/hotel_facility.php")
     Call<List<facilityBean>> getFacilities(@Part("hotel_id") String id);
+
+    @Multipart
+    @POST("immogules/hotel_bookengine.php")
+    Call<bookingEngineBean> getBookingEngine(@Part("hotel_id") String id);
+
 
 }
