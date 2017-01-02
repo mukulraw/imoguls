@@ -15,6 +15,9 @@ public class contactBean {
     @SerializedName("hotel")
     @Expose
     private String hotel;
+    @SerializedName("hotel_name")
+    @Expose
+    private String hotelName;
     @SerializedName("contact_phone")
     @Expose
     private String contactPhone;
@@ -59,6 +62,14 @@ public class contactBean {
 
     public void setHotel(String hotel) {
         this.hotel = hotel;
+    }
+
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
     }
 
     public String getContactPhone() {

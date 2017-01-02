@@ -8,32 +8,12 @@
     tools:context="internetmoguls.com.imoguls.PromoCodeActivity">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center_horizontal"
-        android:padding="18dp"
-        android:textSize="20sp"
-        android:id="@+id/promo_title"
-        android:text="Your promo codes"
-        android:textColor="@color/colorAccent"
-        android:typeface="serif"
-        />
+
+    <include
+        layout="@layout/toolbar"/>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center_horizontal"
-        android:padding="18dp"
-        android:text="ALL"
-        android:textColor="#000"
-        android:drawablePadding="10dp"
-        android:drawableEnd="@drawable/filter"
-        android:id="@+id/promo_filter"
-        />
+
 
 
 

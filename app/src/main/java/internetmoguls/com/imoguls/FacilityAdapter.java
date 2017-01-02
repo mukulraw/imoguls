@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
@@ -68,6 +69,8 @@ class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHolder>{
         Typeface tf = Typeface.createFromAsset(context.getAssets(), "roboto.ttf");
         Typeface tf2 = Typeface.createFromAsset(context.getAssets(), "vladmir.TTF");
 
+        DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)
+                .cacheOnDisc(true).resetViewBeforeLoading(false).build();
 
         ImageLoader loader = ImageLoader.getInstance();
 
@@ -92,7 +95,7 @@ class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHolder>{
 
                 name.setTypeface(tf);
 
-                loader.displayImage(item.getFacilityData().get(j).getFacilityImage() , image);
+                loader.displayImage(item.getFacilityData().get(j).getFacilityImage() , image , options);
 
                 name.setText(item.getFacilityData().get(j).getFacilityName());
 
