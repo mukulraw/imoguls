@@ -1,6 +1,8 @@
 package internetmoguls.com.imoguls;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     TextView title;
 
     RecyclerView grid;
+    SharedPreferences pref;
+    SharedPreferences.Editor edit;
 
     List<HotelDetail> list;
 
@@ -48,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        pref = getSharedPreferences("pree" , Context.MODE_PRIVATE);
+        edit = pref.edit();
 
 
         title = (TextView)findViewById(R.id.title);
@@ -99,12 +107,20 @@ public class MainActivity extends AppCompatActivity {
 
         Call<detailsBean> call = cr.details(b.userId);
 
+
+        edit.putString("id" , String.valueOf(b.userId));
+        edit.apply();
+
+
         call.enqueue(new Callback<detailsBean>() {
             @Override
             public void onResponse(Call<detailsBean> call, Response<detailsBean> response) {
 
                 b.username = response.body().getName();
                 b.email = response.body().getEmail();
+
+
+
 
 
 

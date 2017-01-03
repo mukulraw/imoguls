@@ -3,6 +3,7 @@ package INTERFACES;
 
 import java.util.List;
 
+import OfferVoucherPOJO.ovBean;
 import POJO.RegisterBean;
 import POJO.detailsBean;
 import POJO.fnbBean;
@@ -13,6 +14,7 @@ import facilityPOJO.facilityBean;
 import galleryPOJO.galleryBean;
 import internetmoguls.com.imoguls.bookingEngineBean;
 import meetingsPOJO.meetingBean;
+import notificationjPOJO.notifyBean;
 import offerPOJO.offerBean;
 import propertiesPOJO.propertyBean;
 import restaurantPOJO.restaurantBean;
@@ -107,6 +109,16 @@ public interface Register {
     @Multipart
     @POST("immogules/hotel_bookengine.php")
     Call<bookingEngineBean> getBookingEngine(@Part("hotel_id") String id);
+
+    @Multipart
+    @POST("immogules/notification.php")
+    Call<notifyBean> getNotification(@Part("userid") String id);
+
+
+    @Multipart
+    @POST("immogules/offer_voucher.php")
+    Call<ovBean> getPromoCodes(@Part("userid") String id , @Part("type") String type);
+
 
 
 }
