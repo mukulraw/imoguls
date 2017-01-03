@@ -16,6 +16,7 @@ import internetmoguls.com.imoguls.bookingEngineBean;
 import meetingsPOJO.meetingBean;
 import notificationjPOJO.notifyBean;
 import offerPOJO.offerBean;
+import popupPOJO.popupBean;
 import propertiesPOJO.propertyBean;
 import restaurantPOJO.restaurantBean;
 import retrofit2.Call;
@@ -24,6 +25,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import roomsPOJO.roomsBean;
+import singlePOJO.singleBean;
 
 public interface Register {
 
@@ -118,6 +120,14 @@ public interface Register {
     @Multipart
     @POST("immogules/offer_voucher.php")
     Call<ovBean> getPromoCodes(@Part("userid") String id , @Part("type") String type);
+
+    @Multipart
+    @POST("immogules/pop-image.php")
+    Call<popupBean> getPopup(@Part("hotel_id") String hotelId);
+
+    @Multipart
+    @POST("immogules/single_page.php")
+    Call<singleBean> getSingle(@Part("id") String hotelId);
 
 
 
