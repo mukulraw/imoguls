@@ -56,7 +56,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         ImageLoader loader = ImageLoader.getInstance();
         loader.displayImage(item.getRestaurantImage() , holder.image);
 
-        String htmlText = "<html><body style=\"text-align:justify; background:#f5f5f5; padding:0 10px;\"><font size=\"3\" weight=\"300\" face=\"roboto\" color=\"#808080\"> %s </font></body></Html>";
+        String htmlText = "<html><body style=\"text-align:justify; background:#ffffff; padding:0 10px;\"><font size=\"3\" weight=\"300\" face=\"roboto\" color=\"#808080\"> %s </font></body></Html>";
 
         holder.description.loadData(String.format(htmlText , item.getRestaurantDescription()) , "text/html", null);
 

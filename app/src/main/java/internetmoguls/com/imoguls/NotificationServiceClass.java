@@ -47,7 +47,9 @@ public class NotificationServiceClass extends Service {
 
                     if (cd.isConnectingToInternet())
                     {
-                        getCodes();
+
+
+
                     }
 
 
@@ -68,142 +70,24 @@ public class NotificationServiceClass extends Service {
     }
 
 
-    private void getCodes()
-    {
+    @Override
+    public void onCreate() {
 
 
+        cd = new ConnectionDetector(getApplicationContext());
+        doSomethingRepeatedly();
 
-
-
-        bean b = (bean)getApplicationContext();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://nationproducts.in/")
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        Register cr = retrofit.create(Register.class);
-
-        Call<promoBean> call = cr.getPromo2(b.userId );
-
-        call.enqueue(new Callback<promoBean>() {
-            @Override
-            public void onResponse(Call<promoBean> call, Response<promoBean> response) {
-
-
-                Log.d("asdasdasd" , "started but null");
-
-                if (response.body().getPosts()!=null)
-                {
-
-                    Log.d("asdasdasd" , "started but not null");
-                    int size = response.body().getPosts().size();
-
-                    if (size == 1)
-                    {
-                        NotificationCompat.Builder mBuilder =
-                                new NotificationCompat.Builder(getApplicationContext())
-                                        .setSmallIcon(R.mipmap.ic_launcher2)
-                                        .setContentTitle(response.body().getPosts().get(0).getPost().getTitle())
-                                        .setContentText(response.body().getPosts().get(0).getPost().getVoucherCode())
-                                .setContentInfo(response.body().getPosts().get(0).getPost().getDescription());
-
-                        Intent resultIntent = new Intent(getApplicationContext(), PromoCodeActivity.class);
-
-// The stack builder object will contain an artificial back stack for the
-// started Activity.
-// This ensures that navigating backward from the Activity leads out of
-// your application to the Home screen.
-                        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
-// Adds the back stack for the Intent (but not the Intent itself)
-                        stackBuilder.addParentStack(PromoCodeActivity.class);
-// Adds the Intent that starts the Activity to the top of the stack
-                        stackBuilder.addNextIntent(resultIntent);
-                        PendingIntent resultPendingIntent =
-                                stackBuilder.getPendingIntent(
-                                        0,
-                                        PendingIntent.FLAG_UPDATE_CURRENT
-                                );
-                        mBuilder.setContentIntent(resultPendingIntent);
-                        NotificationManager mNotificationManager =
-                                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-// mId allows you to update the notification later on.
-                        mNotificationManager.notify(123, mBuilder.build());
-                    }
-
-
-
-
-                    if (size>1)
-                    {
-                        NotificationCompat.Builder mBuilder =
-                                new NotificationCompat.Builder(getApplicationContext())
-                                        .setSmallIcon(R.mipmap.ic_launcher2)
-                                        .setContentTitle("You have "+ String.valueOf(size) +" new Promo Codes");
-
-                        Intent resultIntent = new Intent(getApplicationContext(), PromoCodeActivity.class);
-
-// The stack builder object will contain an artificial back stack for the
-// started Activity.
-// This ensures that navigating backward from the Activity leads out of
-// your application to the Home screen.
-                        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
-// Adds the back stack for the Intent (but not the Intent itself)
-                        stackBuilder.addParentStack(PromoCodeActivity.class);
-// Adds the Intent that starts the Activity to the top of the stack
-                        stackBuilder.addNextIntent(resultIntent);
-                        PendingIntent resultPendingIntent =
-                                stackBuilder.getPendingIntent(
-                                        0,
-                                        PendingIntent.FLAG_UPDATE_CURRENT
-                                );
-                        mBuilder.setContentIntent(resultPendingIntent);
-                        NotificationManager mNotificationManager =
-                                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-// mId allows you to update the notification later on.
-                        mNotificationManager.notify(123, mBuilder.build());
-
-
-
-                    }
-
-
-
-
-
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-            }
-
-            @Override
-            public void onFailure(Call<promoBean> call, Throwable t) {
-
-            }
-        });
     }
-
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
 
-        cd = new ConnectionDetector(getApplicationContext());
+        //cd = new ConnectionDetector(getApplicationContext());
 
-        Log.d("asdasdasdasd" , "service started");
 
-        doSomethingRepeatedly();
+
+
         return Service.START_NOT_STICKY;
     }
 

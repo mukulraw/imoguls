@@ -85,7 +85,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".DefaultPage"
             android:screenOrientation="portrait"/>
-        <service android:name=".NotificationServiceClass"/>
+        <service android:name=".NotifyService"/>
+
     </application>
 
 </manifest>
