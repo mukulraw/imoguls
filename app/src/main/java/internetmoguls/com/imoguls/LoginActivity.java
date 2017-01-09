@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -162,12 +163,15 @@ public class LoginActivity extends AppCompatActivity {
         Button log;
         TextView forgot;
 
+        ProgressBar progress;
 
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.sign_in_page1, container, false);
+
+            progress = (ProgressBar)v.findViewById(R.id.progress);
 
             email = (EditText)v.findViewById(R.id.email_login);
             password = (EditText)v.findViewById(R.id.password_login);
@@ -191,6 +195,10 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
 
+
+                            progress.setVisibility(View.VISIBLE);
+
+
                             Retrofit retrofit = new Retrofit.Builder()
                                     .baseUrl("http://nationproducts.in/")
                                     .addConverterFactory(ScalarsConverterFactory.create())
@@ -209,11 +217,18 @@ public class LoginActivity extends AppCompatActivity {
                                     if (response.body().getStatus().equals("1"))
                                     {
                                         Toast.makeText(getActivity() , "Your password has sent to your email id" , Toast.LENGTH_SHORT).show();
+
+                                        progress.setVisibility(View.GONE);
+
                                         dialog.dismiss();
+
                                     }
                                     if (response.body().getStatus().equals("2"))
                                     {
                                         Toast.makeText(getActivity() , "Invalid email id" , Toast.LENGTH_SHORT).show();
+
+                                        progress.setVisibility(View.GONE);
+
                                         dialog.dismiss();
                                     }
 
@@ -224,6 +239,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onFailure(Call<RegisterBean> call, Throwable t) {
+
+                                    progress.setVisibility(View.GONE);
 
                                 }
                             });
@@ -259,6 +276,7 @@ public class LoginActivity extends AppCompatActivity {
 */
                     //logoEmail("email" , e , p);
 
+                    progress.setVisibility(View.VISIBLE);
 
 
                     login(e , p);
@@ -326,6 +344,8 @@ public class LoginActivity extends AppCompatActivity {
 
                         b.userId = response.body().getUserId();
 
+                        progress.setVisibility(View.GONE);
+
                         Intent i = new Intent(getContext() ,MainActivity.class);
                         startActivity(i);
                         getActivity().finish();
@@ -335,6 +355,8 @@ public class LoginActivity extends AppCompatActivity {
                         bean b = (bean)getActivity().getApplicationContext();
 
                         b.userId = response.body().getUserId();
+                        progress.setVisibility(View.GONE);
+
                         Intent i = new Intent(getContext() ,OTP_Activity.class);
                         startActivity(i);
                         getActivity().finish();
@@ -343,6 +365,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (response.body().getStatus().equals("2") || response.body().getStatus().equals("3"))
                     {
+                        progress.setVisibility(View.GONE);
                         Toast.makeText(getContext() , "Invalid Email or password" , Toast.LENGTH_SHORT).show();
                     }
 
@@ -354,7 +377,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<RegisterBean> call, Throwable t) {
-
+                    progress.setVisibility(View.GONE);
                 }
             });
 
@@ -368,6 +391,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText username , emailId , mobileNo , passw , retpassword , addre;
         Button create;
 
+        ProgressBar progress;
 
 
 
@@ -378,6 +402,12 @@ public class LoginActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.sign_in_page2, container, false);
             //  title.setText("Sign Up");
+
+
+            progress = (ProgressBar)v.findViewById(R.id.progress);
+
+
+
             TextView goToLoginPage = (TextView)v.findViewById(R.id.login_pager);
 
             username = (EditText)v.findViewById(R.id.username);
@@ -423,6 +453,10 @@ public class LoginActivity extends AppCompatActivity {
                                         {
 
                                             //add register logic
+
+
+                                            progress.setVisibility(View.VISIBLE);
+
 
                                             regisEmail(user , emai , mob , pass , addr);
 
@@ -526,6 +560,10 @@ public class LoginActivity extends AppCompatActivity {
                         retpassword.setText("");
                         addre.setText("");
 
+
+                        progress.setVisibility(View.GONE);
+
+
                         Intent i = new Intent(getActivity() , OTP_Activity.class);
                         bean b = (bean)getActivity().getApplicationContext();
                         b.userId = response.body().getUserId();
@@ -534,6 +572,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     if (response.body().getStatus().equals("2"))
                     {
+                        progress.setVisibility(View.GONE);
                         Toast.makeText(getActivity() , "Email Already registered, please login to continue" , Toast.LENGTH_SHORT).show();
                     }
 
@@ -545,7 +584,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<RegisterBean> call, Throwable t) {
-
+                    progress.setVisibility(View.GONE);
                 }
             });
 

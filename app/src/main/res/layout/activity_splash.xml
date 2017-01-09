@@ -4,40 +4,52 @@
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
+    android:background="#fff"
     tools:context="internetmoguls.com.imoguls.SplashActivity">
+
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:src="@drawable/hh"
         android:scaleType="centerCrop"
         />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/dark_shade"
+        />
+
+
+
+
+
+
+
+
+
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hotel Kohinoor"
+            android:text="Hotel"
             android:padding="18dp"
+            android:textAllCaps="true"
             android:typeface="sans"
             android:id="@+id/tv1"
+            android:gravity="center"
             android:textStyle="normal"
+            android:background="@drawable/dark_gradient"
             android:textColor="#f5f5f5"
-            android:textSize="34sp"
-            android:layout_gravity="center_horizontal"
+            android:textSize="44sp"
+            android:layout_centerInParent="true"
             />
 
 
 
-    </LinearLayout>
+
 
 
 

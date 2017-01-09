@@ -18,98 +18,58 @@ public class meetingBean {
     @SerializedName("meet_description")
     @Expose
     private String meetDescription;
+    @SerializedName("banquets")
+    @Expose
+    private String banquets;
     @SerializedName("status")
     @Expose
     private String status;
 
-    /**
-     *
-     * @return
-     * The meetId
-     */
     public String getMeetId() {
         return meetId;
     }
 
-    /**
-     *
-     * @param meetId
-     * The meet_id
-     */
     public void setMeetId(String meetId) {
         this.meetId = meetId;
     }
 
-    /**
-     *
-     * @return
-     * The meetName
-     */
     public String getMeetName() {
         return meetName;
     }
 
-    /**
-     *
-     * @param meetName
-     * The meet_name
-     */
     public void setMeetName(String meetName) {
         this.meetName = meetName;
     }
 
-    /**
-     *
-     * @return
-     * The hotel
-     */
     public String getHotel() {
         return hotel;
     }
 
-    /**
-     *
-     * @param hotel
-     * The hotel
-     */
     public void setHotel(String hotel) {
         this.hotel = hotel;
     }
 
-    /**
-     *
-     * @return
-     * The meetDescription
-     */
     public String getMeetDescription() {
         return meetDescription;
     }
 
-    /**
-     *
-     * @param meetDescription
-     * The meet_description
-     */
     public void setMeetDescription(String meetDescription) {
         this.meetDescription = meetDescription;
     }
 
-    /**
-     *
-     * @return
-     * The status
-     */
+    public String getBanquets() {
+        return banquets;
+    }
+
+    public void setBanquets(String banquets) {
+        this.banquets = banquets;
+    }
+
     public String getStatus() {
         return status;
     }
 
-    /**
-     *
-     * @param status
-     * The status
-     */
     public void setStatus(String status) {
         this.status = status;
     }
-
 }

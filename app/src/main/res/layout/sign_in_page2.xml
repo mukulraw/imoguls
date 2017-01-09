@@ -4,7 +4,7 @@
     android:id="@+id/activity_login3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#00000000"
     tools:context="internetmoguls.com.imoguls.LoginActivity">
 
 
@@ -24,7 +24,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="8dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/text_background"
             android:hint="Username"
@@ -40,7 +40,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="8dp"
             android:background="@drawable/text_background"
             android:hint="Email Id"
             android:layout_marginStart="2dp"
@@ -55,7 +55,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="8dp"
             android:background="@drawable/text_background"
             android:hint="Mobile No."
             android:inputType="phone"
@@ -70,7 +70,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="8dp"
             android:id="@+id/address"
             android:inputType="textPostalAddress"
             android:background="@drawable/text_background"
@@ -86,7 +86,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="8dp"
             android:id="@+id/password"
             android:inputType="textPassword"
             android:background="@drawable/text_background"
@@ -100,7 +100,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="8dp"
             android:background="@drawable/text_background"
             android:hint="Retype password"
             android:layout_marginStart="2dp"
@@ -130,6 +130,9 @@
             android:background="@drawable/round_white"
             android:textColor="@color/colorPrimaryDark"
             android:layout_margin="2dp"
+            android:minHeight="0dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
             android:text="Sign up"
             android:id="@+id/signup"
             android:layout_marginBottom="15dp"
@@ -151,6 +154,14 @@
     </LinearLayout>
 
 
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
 
 
 </RelativeLayout>
