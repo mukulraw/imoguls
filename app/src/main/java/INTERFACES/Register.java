@@ -13,6 +13,7 @@ import contactPOJO.contactBean;
 import facilityPOJO.facilityBean;
 import galleryPOJO.galleryBean;
 import internetmoguls.com.imoguls.bookingEngineBean;
+import internetmoguls.com.imoguls.updateBean;
 import meetingsPOJO.meetingBean;
 import notificationjPOJO.notifyBean;
 import offerPOJO.offerBean;
@@ -128,6 +129,10 @@ public interface Register {
     @Multipart
     @POST("immogules/single_page.php")
     Call<singleBean> getSingle(@Part("id") String hotelId);
+
+    @Multipart
+    @POST("immogules/user_update.php")
+    Call<updateBean> update(@Part("id") String id, @Part("name") String name , @Part("email") String email , @Part("address") String address , @Part("phone") String phone);
 
 
 
