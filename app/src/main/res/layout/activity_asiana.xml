@@ -87,7 +87,7 @@
         android:paddingBottom="8dp"
         android:background="@drawable/book_background"
         android:id="@+id/book_button"
-        android:textColor="@color/colorAccent"
+        android:textColor="#fff"
         />
 
 
