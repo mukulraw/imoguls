@@ -91,7 +91,8 @@
         <service android:name=".NotifyService" />
 
         <activity android:name=".UserProfile" />
-        <activity android:name=".UpdateProfile"></activity>
+        <activity android:name=".UpdateProfile" />
+        <activity android:name=".ImageViewPager"></activity>
     </application>
 
 </manifest>
