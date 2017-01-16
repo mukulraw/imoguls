@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,12 @@ public class ImageViewPager extends AppCompatActivity {
         // Retrieve all the images
         for (int i = 0; i < imageAdapter.getItemCount(); i++) {
             ImageView imageView = new ImageView(this);
-            imageView.setImageBitmap(imageAdapter.l2.get(i));
+
+            ImageLoader loader = ImageLoader.getInstance();
+
+            loader.displayImage(imageAdapter.list.get(i).getGalleryImage() , imageView);
+
+            //imageView.setImageBitmap(imageAdapter.l2.get(i));
             imageView.setScaleType(ImageView.ScaleType.CENTER);
             images.add(imageView);
         }
