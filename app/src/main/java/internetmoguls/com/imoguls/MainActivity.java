@@ -1,7 +1,10 @@
 package internetmoguls.com.imoguls;
 
+import android.*;
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -194,6 +197,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 */
+
+
+
+
+
 
 
             Intent intent1 = new Intent(this , NotifyService.class);

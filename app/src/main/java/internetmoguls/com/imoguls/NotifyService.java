@@ -181,4 +181,14 @@ public class NotifyService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        receive r = new receive();
+        unregisterReceiver(r);
+
+
+    }
 }

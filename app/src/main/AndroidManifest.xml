@@ -12,7 +12,10 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
 
     <application
         android:name=".bean"
@@ -89,11 +92,29 @@
             android:name=".DefaultPage"
             android:screenOrientation="portrait" />
 
-        <service android:name=".NotifyService" />
+        <service android:name=".NotifyService"
+            android:enabled="true"
+            android:exported="true" >
 
-        <activity android:name=".UserProfile" />
-        <activity android:name=".UpdateProfile" />
-        <activity android:name=".ImageViewPager"></activity>
+
+
+        </service>
+
+        <activity android:name=".UserProfile"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UpdateProfile"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ImageViewPager"
+            android:screenOrientation="portrait"/>
+        <receiver android:name=".receive"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>
