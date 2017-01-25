@@ -1,6 +1,7 @@
 package internetmoguls.com.imoguls;
 
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,6 +20,9 @@ public class ImagePagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView imageView = images.get(position);
+
+        Log.d("asdasdasdasdposition" , String.valueOf(position));
+
         container.addView(imageView);
         return imageView;
     }

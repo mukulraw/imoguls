@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -26,15 +27,24 @@ public class ImageViewPager extends AppCompatActivity {
         DefaultPage.AsianaFragment.gallery.GalleryAdapter imageAdapter = new DefaultPage.AsianaFragment.gallery.GalleryAdapter(this);
         List<ImageView> images = new ArrayList<ImageView>();
 
+
+        Log.d("Asdasdasd" , "activity");
+
+
+        Log.d("asdasdcount" , String.valueOf(imageAdapter.getItemCount()));
+
         // Retrieve all the images
-        for (int i = 0; i < imageAdapter.getItemCount(); i++) {
+        for (int i = 0; i < imageAdapter.list.size(); i++) {
+
+            Log.d("asdasdFOR" , "entered");
+
             ImageView imageView = new ImageView(this);
 
             ImageLoader loader = ImageLoader.getInstance();
 
-            loader.displayImage(imageAdapter.list.get(i).getGalleryImage() , imageView);
+            //loader.displayImage(imageAdapter.list.get(i).getGalleryImage() , imageView);
 
-            //imageView.setImageBitmap(imageAdapter.l2.get(i));
+            imageView.setImageBitmap(imageAdapter.l2.get(i));
             imageView.setScaleType(ImageView.ScaleType.CENTER);
             images.add(imageView);
         }
